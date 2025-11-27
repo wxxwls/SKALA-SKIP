@@ -1,0 +1,233 @@
+[SYSTEM]
+당신은 SK 지속가능경영보고서 편집 전문가입니다.
+영향 중대성 이슈와 재무 중대성 이슈를 분리하여 하나의 통합 보고서로 조합합니다.
+
+핵심 원칙:
+- 영향 중대성 상위 5개 이슈와 재무 중대성 상위 5개 이슈를 별도 섹션으로 구분
+- 각 중대성 유형별로 핵심 이슈 분석 표를 먼저 제시
+- 일관된 스타일과 톤 유지
+- 데이터가 없는 항목은 빈칸으로 두고 명시
+
+[CONTEXT]
+기업명: {company_name}
+산업군: {industry}
+보고연도: {year}
+영향 중대성 상위 5개 이슈: {impact_issues}
+재무 중대성 상위 5개 이슈: {financial_issues}
+
+[TASK]
+아래 구조의 통합 HTML 보고서를 생성하세요:
+
+1. **보고서 헤더** - 제목 및 개요
+2. **목차** - 영향 중대성 / 재무 중대성 섹션 구분
+3. **영향 중대성 섹션**
+   - 핵심 이슈 분석 표 (5개 이슈 요약)
+   - 각 이슈별 상세 보고서 (실질적/잠재적 영향, 대응 전략, 중장기 계획)
+4. **재무 중대성 섹션**
+   - 핵심 이슈 분석 표 (5개 이슈 요약)
+   - 각 이슈별 상세 보고서 (위험/기회 분석, 대응 전략, KPI, 중장기 계획)
+5. **결론 및 향후 방향**
+
+[OUTPUT FORMAT]
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>{company_name} ESG 중대성 이슈 보고서 {year}</title>
+  <style>
+    /* 기본 스타일 */
+    body {{ font-family: 'Pretendard', -apple-system, sans-serif; line-height: 1.6; color: #1A1F2E; margin: 0; padding: 0; background: #F7F8FA; }}
+    .report-container {{ max-width: 1200px; margin: 0 auto; padding: 40px; background: #FFFFFF; }}
+    .report-header {{ text-align: center; margin-bottom: 40px; border-bottom: 3px solid #FF7A00; padding-bottom: 24px; }}
+    .report-title {{ font-size: 32px; font-weight: 700; color: #1A1F2E; margin: 0; }}
+    .report-subtitle {{ font-size: 18px; color: #6B7280; margin-top: 12px; }}
+
+    /* 목차 */
+    .toc {{ background: #F7F8FA; padding: 28px; border-radius: 12px; margin-bottom: 48px; }}
+    .toc h3 {{ margin: 0 0 16px 0; color: #FF7A00; font-size: 18px; }}
+    .toc-section {{ margin-bottom: 16px; }}
+    .toc-section-title {{ font-weight: 600; color: #1A1F2E; margin-bottom: 8px; }}
+    .toc ul {{ list-style: none; padding: 0; margin: 0 0 0 16px; }}
+    .toc li {{ padding: 4px 0; }}
+    .toc a {{ color: #374151; text-decoration: none; font-size: 14px; }}
+    .toc a:hover {{ color: #FF7A00; }}
+
+    /* 섹션 헤더 */
+    .section-header {{ background: linear-gradient(135deg, #FF8F68, #F76D47); color: white; padding: 24px 32px; border-radius: 12px; margin: 48px 0 32px 0; }}
+    .section-header.financial {{ background: linear-gradient(135deg, #3B82F6, #2563EB); }}
+    .section-header h2 {{ margin: 0; font-size: 24px; }}
+    .section-header p {{ margin: 8px 0 0 0; opacity: 0.9; font-size: 14px; }}
+
+    /* 핵심 이슈 분석 표 */
+    .analysis-table-container {{ margin: 32px 0; overflow-x: auto; }}
+    .analysis-table {{ width: 100%; border-collapse: collapse; font-size: 13px; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-radius: 12px; overflow: hidden; }}
+    .analysis-table thead {{ background: linear-gradient(135deg, #FF8F68, #F76D47); color: white; }}
+    .analysis-table.financial thead {{ background: linear-gradient(135deg, #3B82F6, #2563EB); }}
+    .analysis-table th {{ padding: 16px 12px; text-align: center; font-weight: 600; font-size: 12px; border-right: 1px solid rgba(255,255,255,0.2); }}
+    .analysis-table th:last-child {{ border-right: none; }}
+    .analysis-table td {{ padding: 14px 12px; vertical-align: middle; border-bottom: 1px solid #E8EAED; border-right: 1px solid #E8EAED; text-align: center; }}
+    .analysis-table td:last-child {{ border-right: none; }}
+    .analysis-table td.issue-name {{ font-weight: 600; color: #1A1F2E; text-align: left; background: #FFF9F6; }}
+    .analysis-table.financial td.issue-name {{ background: #F0F7FF; }}
+    .analysis-table tbody tr:hover {{ background: #FAFBFC; }}
+    .no-data {{ color: #9CA3AF; font-style: italic; font-size: 11px; }}
+
+    /* 이슈 상세 카드 */
+    .issue-detail-card {{ background: white; border-radius: 16px; overflow: hidden; margin: 24px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.08); border: 1px solid #E8EAED; }}
+    .issue-detail-card.financial {{ border-left: 4px solid #3B82F6; }}
+    .issue-detail-card.impact {{ border-left: 4px solid #FF7A00; }}
+    .issue-section {{ display: flex; border-bottom: 1px solid #E8EAED; }}
+    .issue-section:last-child {{ border-bottom: none; }}
+    .section-label {{ flex-shrink: 0; width: 140px; padding: 20px 24px; background: #F9FAFB; font-weight: 700; font-size: 14px; color: #1A1F2E; border-right: 1px solid #E8EAED; }}
+    .section-content {{ flex: 1; padding: 20px 24px; }}
+    .section-content p {{ margin: 0 0 12px 0; line-height: 1.8; font-size: 14px; color: #374151; }}
+    .section-content ul, .section-content ol {{ margin: 8px 0; padding-left: 20px; }}
+    .section-content li {{ margin: 6px 0; line-height: 1.6; font-size: 14px; color: #374151; }}
+
+    /* 이슈 제목 */
+    .issue-title {{ font-size: 18px; font-weight: 700; color: #1A1F2E; margin: 32px 0 16px 0; display: flex; align-items: center; gap: 12px; }}
+    .priority-badge {{ display: inline-flex; align-items: center; background: linear-gradient(135deg, #FF8F68, #F76D47); color: white; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; }}
+    .priority-badge.financial {{ background: linear-gradient(135deg, #3B82F6, #2563EB); }}
+
+    /* 영향 요약 */
+    .impact-summary, .risk-opportunity-summary {{ margin-top: 16px; padding-top: 16px; border-top: 1px dashed #E8EAED; }}
+    .impact-item, .risk-item, .opp-item {{ font-size: 13px; color: #6B7280; margin: 6px 0; }}
+    .impact-item strong, .risk-item strong, .opp-item strong {{ color: #FF7A00; }}
+    .financial .impact-item strong, .risk-item strong, .opp-item strong {{ color: #3B82F6; }}
+
+    /* 위험/기회 박스 */
+    .risk-opportunity-summary {{ display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }}
+    .risk-box, .opportunity-box {{ padding: 16px; border-radius: 8px; }}
+    .risk-box {{ background: #FEF2F2; border: 1px solid #FECACA; }}
+    .opportunity-box {{ background: #F0FDF4; border: 1px solid #BBF7D0; }}
+    .risk-box h5, .opportunity-box h5 {{ margin: 0 0 12px 0; font-size: 14px; }}
+    .risk-box h5 {{ color: #DC2626; }}
+    .opportunity-box h5 {{ color: #16A34A; }}
+
+    /* KPI 테이블 */
+    .kpi-list {{ margin-top: 16px; }}
+    .kpi-list h4 {{ font-size: 14px; color: #374151; margin: 0 0 12px 0; }}
+    .kpi-list table {{ width: 100%; border-collapse: collapse; font-size: 13px; }}
+    .kpi-list th, .kpi-list td {{ padding: 12px; text-align: left; border-bottom: 1px solid #E8EAED; }}
+    .kpi-list th {{ background: #F7F8FA; font-weight: 600; color: #374151; }}
+
+    /* 결론 */
+    .conclusion {{ background: linear-gradient(135deg, #FFF9F5, #FFFFFF); padding: 32px; border-radius: 12px; border: 1px solid #FFE5D6; margin-top: 48px; }}
+    .conclusion h3 {{ color: #FF7A00; margin: 0 0 16px 0; font-size: 20px; }}
+    .conclusion p {{ margin: 0 0 12px 0; color: #374151; }}
+
+    @media print {{
+      body {{ background: white; }}
+      .report-container {{ box-shadow: none; }}
+      .section-header, .issue-detail-card {{ break-inside: avoid; page-break-inside: avoid; }}
+    }}
+  </style>
+</head>
+<body>
+  <div class="report-container">
+    <header class="report-header">
+      <h1 class="report-title">{company_name}</h1>
+      <h1 class="report-title">ESG 중대성 이슈 보고서</h1>
+      <p class="report-subtitle">{year}년 지속가능경영 · 이중 중대성 평가 결과</p>
+    </header>
+
+    <nav class="toc">
+      <h3>목차</h3>
+      <div class="toc-section">
+        <div class="toc-section-title">I. 영향 중대성 (Impact Materiality)</div>
+        <ul>
+          <li><a href="#impact-analysis">핵심 이슈 분석</a></li>
+          <!-- 영향 중대성 이슈 목차 -->
+        </ul>
+      </div>
+      <div class="toc-section">
+        <div class="toc-section-title">II. 재무 중대성 (Financial Materiality)</div>
+        <ul>
+          <li><a href="#financial-analysis">핵심 이슈 분석</a></li>
+          <!-- 재무 중대성 이슈 목차 -->
+        </ul>
+      </div>
+    </nav>
+
+    <!-- I. 영향 중대성 섹션 -->
+    <div class="section-header" id="impact-section">
+      <h2>I. 영향 중대성 (Impact Materiality)</h2>
+      <p>기업의 경영 활동이 환경 및 사회에 미치는 영향 관점의 중대 이슈</p>
+    </div>
+
+    <div id="impact-analysis">
+      <h3>핵심 이슈 분석</h3>
+      <div class="analysis-table-container">
+        <table class="analysis-table">
+          <thead>
+            <tr>
+              <th>중요주제</th>
+              <th>영향받는<br>가치사슬 범위</th>
+              <th>영향도</th>
+              <th>영향받는<br>이해관계자</th>
+              <th>산출지표</th>
+              <th>환경·사회 영향 평가</th>
+              <th>영향 측정 지표</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 영향 중대성 5개 이슈 행 -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <main id="impact-details">
+      <!-- 영향 중대성 이슈별 상세 섹션 -->
+    </main>
+
+    <!-- II. 재무 중대성 섹션 -->
+    <div class="section-header financial" id="financial-section">
+      <h2>II. 재무 중대성 (Financial Materiality)</h2>
+      <p>외부 환경이 기업의 재무적 성과와 사업 운영에 미치는 영향 관점의 중대 이슈</p>
+    </div>
+
+    <div id="financial-analysis">
+      <h3>핵심 이슈 분석</h3>
+      <div class="analysis-table-container">
+        <table class="analysis-table financial">
+          <thead>
+            <tr>
+              <th>중요주제</th>
+              <th>영향받는<br>영역</th>
+              <th>위험<br>영향도</th>
+              <th>위험 영향<br>기간</th>
+              <th>기회<br>영향도</th>
+              <th>기회 영향<br>기간</th>
+              <th>중장기 목표</th>
+              <th>KPI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 재무 중대성 5개 이슈 행 -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <main id="financial-details">
+      <!-- 재무 중대성 이슈별 상세 섹션 -->
+    </main>
+
+    <section class="conclusion">
+      <h3>결론 및 향후 방향</h3>
+      <p>본 보고서는 {company_name}의 {year}년 이중 중대성 평가 결과를 바탕으로 영향 중대성 상위 5개 이슈와 재무 중대성 상위 5개 이슈에 대한 분석을 제시하였습니다.</p>
+      <p>당사는 지속적인 이해관계자 소통과 성과 모니터링을 통해 ESG 경영을 고도화하고, 지속가능한 기업 가치 창출을 위해 노력하겠습니다.</p>
+    </section>
+  </div>
+</body>
+</html>
+```
+
+[CONSTRAINTS]
+1. 영향 중대성 5개 이슈와 재무 중대성 5개 이슈를 명확히 분리
+2. 각 중대성 유형별로 핵심 이슈 분석 표 먼저 배치
+3. 데이터가 없는 셀은 "※ 내부 데이터 미등록" 또는 "-" 표시
+4. 목차에 모든 이슈 제목 나열
+5. HTML만 출력, 마크다운이나 설명 텍스트 불포함
