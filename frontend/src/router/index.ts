@@ -52,6 +52,15 @@ const routes: RouteRecordRaw[] = [
     }
   },
   {
+    path: '/documents',
+    name: 'Documents',
+    component: () => import('@/views/documents/DocumentsView.vue'),
+    meta: {
+      title: '문서목록',
+      requiresAuth: true
+    }
+  },
+  {
     path: '/materiality',
     name: 'Materiality',
     component: () => import('@/views/materiality/MaterialityView.vue'),

@@ -1,379 +1,162 @@
 <template>
-  <div class="h-full overflow-y-auto" :style="{ padding: '32px 40px' }">
-    <!-- Document Type Selection Tabs -->
-    <div :style="{
-      background: '#FFFFFF',
-      borderRadius: '12px',
-      border: '1px solid #E8EAED',
-      marginBottom: '24px',
-      overflow: 'hidden'
-    }">
-      <div :style="{
-        padding: '0 24px',
-        borderBottom: '1px solid #E8EAED',
-        display: 'flex',
-        gap: '0'
-      }">
+  <div class="document-list-container">
+    <!-- Header Section -->
+    <div class="header-section">
+      <div class="header-top">
+        <h2 class="page-title">
+          문서 라이브러리
+          <span class="subtitle">ESG 및 벤치마킹 문서 관리</span>
+        </h2>
         <button
-          v-for="tab in documentTabs"
-          :key="tab.id"
-          @click="selectedDocType = tab.id"
-          :style="{
-            padding: '16px 24px',
-            fontSize: '14px',
-            fontWeight: 600,
-            color: selectedDocType === tab.id ? tab.color : '#9CA3AF',
-            borderTop: 'none',
-            borderLeft: 'none',
-            borderRight: 'none',
-            borderBottom: selectedDocType === tab.id ? `3px solid ${tab.color}` : '3px solid transparent',
-            background: 'transparent',
-            cursor: 'pointer',
-            transition: 'all 0.2s',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px'
-          }"
+          class="upload-btn"
+          @click="triggerFileInput"
+          :disabled="isUploading"
         >
-          <component :is="tab.icon" class="w-4 h-4" />
-          {{ tab.label }}
-          <span :style="{
-            padding: '2px 8px',
-            background: selectedDocType === tab.id ? tab.color + '20' : '#F3F4F6',
-            borderRadius: '10px',
-            fontSize: '11px',
-            fontWeight: 600,
-            color: selectedDocType === tab.id ? tab.color : '#6B7280'
-          }">
-            {{ getDocumentCount(tab.id) }}
-          </span>
+          <div class="btn-content">
+            <Upload v-if="!isUploading" class="icon" />
+            <RefreshCw v-else class="icon animate-spin" />
+            <span>{{ isUploading ? '업로드 중...' : 'PDF 업로드' }}</span>
+          </div>
+          <div class="btn-glow"></div>
         </button>
+        <input
+          type="file"
+          ref="fileInput"
+          accept=".pdf"
+          multiple
+          @change="handleFileUpload"
+          class="hidden-input"
+        />
       </div>
-    </div>
 
-    <!-- Document Management Area -->
-    <div :style="{
-      background: '#FFFFFF',
-      borderRadius: '12px',
-      border: '1px solid #E8EAED',
-      overflow: 'hidden'
-    }">
-      <!-- Header with Upload Button -->
-      <div :style="{
-        padding: '20px 24px',
-        borderBottom: '1px solid #E8EAED',
-        background: 'linear-gradient(120deg, #FF8F68, #F76D47)',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center'
-      }">
-        <div>
-          <h3 :style="{ fontSize: '16px', fontWeight: 600, color: '#FFFFFF', marginBottom: '4px' }">
-            {{ selectedDocType === 'esg' ? 'ESG 표준 문서' : '벤치마킹 분석 문서' }}
-          </h3>
-          <p :style="{ fontSize: '12px', color: 'rgba(255,255,255,0.85)' }">
-            {{ selectedDocType === 'esg'
-              ? 'GRI, SASB 등 ESG 표준 문서를 관리합니다.'
-              : '경쟁사 지속가능경영 보고서를 관리합니다.' }}
-          </p>
-        </div>
-        <div :style="{ display: 'flex', gap: '12px' }">
-          <input
-            type="file"
-            ref="fileInput"
-            accept=".pdf"
-            multiple
-            @change="handleFileUpload"
-            :style="{ display: 'none' }"
-          />
+      <!-- Controls Bar -->
+      <div class="controls-bar">
+        <!-- Tabs -->
+        <div class="tabs-container">
           <button
-            @click="triggerFileInput"
-            :disabled="isUploading"
-            :style="{
-              padding: '10px 20px',
-              background: isUploading ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.2)',
-              borderRadius: '8px',
-              border: '1px solid rgba(255,255,255,0.3)',
-              cursor: isUploading ? 'not-allowed' : 'pointer',
-              fontSize: '13px',
-              fontWeight: 600,
-              color: '#FFFFFF',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px'
-            }"
+            v-for="tab in documentTabs"
+            :key="tab.id"
+            @click="selectedDocType = tab.id"
+            class="tab-btn"
+            :class="{ active: selectedDocType === tab.id }"
           >
-            <Upload v-if="!isUploading" class="w-4 h-4" />
-            <RefreshCw v-else class="w-4 h-4 animate-spin" />
-            {{ isUploading ? '업로드 중...' : 'PDF 업로드' }}
+            <component :is="tab.icon" class="tab-icon" />
+            {{ tab.label }}
+            <span class="count-badge">{{ getDocumentCount(tab.id) }}</span>
           </button>
         </div>
-      </div>
 
-      <!-- Search Bar -->
-      <div :style="{ padding: '16px 24px', borderBottom: '1px solid #E8EAED', background: '#FAFBFC' }">
-        <div :style="{ position: 'relative', maxWidth: '400px' }">
+        <!-- Search -->
+        <div class="search-container">
+          <Search class="search-icon" />
           <input
             type="text"
             v-model="searchQuery"
-            placeholder="문서명으로 검색..."
-            :style="{
-              width: '100%',
-              padding: '10px 40px 10px 16px',
-              borderRadius: '8px',
-              border: '1px solid #E8EAED',
-              fontSize: '13px',
-              color: '#1A1F2E',
-              outline: 'none',
-              background: '#FFFFFF'
-            }"
-          />
-          <Search
-            class="w-4 h-4"
-            :style="{
-              position: 'absolute',
-              right: '12px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              color: '#6B7280'
-            }"
+            placeholder="문서 검색..."
+            class="search-input"
           />
         </div>
       </div>
+    </div>
 
+    <!-- Main Content Area -->
+    <div class="content-area">
       <!-- Loading State -->
-      <div v-if="isLoading" :style="{ padding: '60px', textAlign: 'center' }">
-        <div :style="{
-          width: '48px',
-          height: '48px',
-          border: '4px solid #F3F4F6',
-          borderTop: '4px solid #FF8F68',
-          borderRadius: '50%',
-          margin: '0 auto 16px',
-          animation: 'spin 1s linear infinite'
-        }"></div>
-        <p :style="{ fontSize: '14px', color: '#6B7280' }">문서 목록을 불러오는 중...</p>
+      <div v-if="isLoading" class="loading-state">
+        <div class="spinner"></div>
+        <p>문서 불러오는 중...</p>
       </div>
 
       <!-- Empty State -->
-      <div v-else-if="filteredDocuments.length === 0" :style="{ padding: '60px', textAlign: 'center' }">
-        <div :style="{
-          width: '64px',
-          height: '64px',
-          margin: '0 auto 16px',
-          background: '#F3F4F6',
-          borderRadius: '12px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }">
-          <Search v-if="searchQuery" class="w-8 h-8" :style="{ color: '#9CA3AF' }" />
-          <FileText v-else class="w-8 h-8" :style="{ color: '#9CA3AF' }" />
+      <div v-else-if="filteredDocuments.length === 0" class="empty-state">
+        <div class="empty-illustration">
+          <FileText class="empty-icon" />
+          <div class="empty-circle"></div>
         </div>
-        <p :style="{ fontSize: '16px', fontWeight: 600, color: '#1A1F2E', marginBottom: '8px' }">
-          {{ searchQuery ? '검색 결과가 없습니다' : '업로드된 문서가 없습니다' }}
-        </p>
-        <p :style="{ fontSize: '13px', color: '#6B7280' }">
-          {{ searchQuery
-            ? '다른 검색어를 입력해보세요'
-            : 'PDF 파일을 업로드하여 분석을 시작하세요' }}
-        </p>
+        <h3>문서가 없습니다</h3>
+        <p>{{ searchQuery ? '다른 검색어로 시도해 보세요' : '시작하려면 PDF를 업로드하세요' }}</p>
       </div>
 
-      <!-- Document List -->
-      <div v-else :style="{ padding: '16px 24px' }">
-        <div class="space-y-3">
-          <div
-            v-for="doc in filteredDocuments"
-            :key="doc.id"
-            :style="{
-              padding: '16px 20px',
-              background: '#FFFFFF',
-              border: '1px solid #E8EAED',
-              borderRadius: '12px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '16px',
-              transition: 'all 0.2s'
-            }"
-            class="document-item"
-          >
-            <!-- File Icon -->
-            <div :style="{
-              width: '48px',
-              height: '48px',
-              borderRadius: '10px',
-              background: '#FFF5F0',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexShrink: 0
-            }">
-              <FileText class="w-6 h-6" :style="{ color: '#EA7F52' }" />
+      <!-- Document Grid -->
+      <div v-else class="document-grid">
+        <div
+          v-for="doc in filteredDocuments"
+          :key="doc.id"
+          class="document-card"
+        >
+          <div class="card-header">
+            <div class="file-icon-wrapper" :class="doc.type">
+              <FileText class="file-icon" />
             </div>
-
-            <!-- File Info -->
-            <div :style="{ flex: 1, minWidth: 0 }">
-              <div :style="{ fontSize: '14px', fontWeight: 600, color: '#1A1F2E', marginBottom: '4px' }">
-                {{ doc.name }}
-              </div>
-              <div :style="{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '12px', color: '#6B7280' }">
-                <span>{{ formatFileSize(doc.size) }}</span>
-                <span>{{ formatDate(doc.uploadedAt) }}</span>
-                <span v-if="doc.status === 'embedded'" :style="{
-                  padding: '2px 8px',
-                  background: '#D1FAE5',
-                  borderRadius: '4px',
-                  color: '#047857',
-                  fontWeight: 500
-                }">임베딩 완료</span>
-                <span v-else-if="doc.status === 'pending'" :style="{
-                  padding: '2px 8px',
-                  background: '#FEF3C7',
-                  borderRadius: '4px',
-                  color: '#B45309',
-                  fontWeight: 500
-                }">대기 중</span>
-                <span v-else-if="doc.status === 'processing'" :style="{
-                  padding: '2px 8px',
-                  background: '#DBEAFE',
-                  borderRadius: '4px',
-                  color: '#1D4ED8',
-                  fontWeight: 500
-                }">처리 중</span>
-              </div>
-            </div>
-
-            <!-- Actions -->
-            <div :style="{ display: 'flex', gap: '8px' }">
-              <button
-                @click="deleteDocument(doc.id)"
-                :style="{
-                  width: '36px',
-                  height: '36px',
-                  borderRadius: '8px',
-                  border: '1px solid #FEE2E2',
-                  background: '#FFF5F5',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }"
-              >
-                <Trash2 class="w-4 h-4" :style="{ color: '#EF4444' }" />
+            <div class="card-actions">
+              <button class="action-btn delete" @click.stop="deleteDocument(doc.id)">
+                <Trash2 class="icon" />
               </button>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <h3 class="doc-title" :title="doc.name">{{ doc.name }}</h3>
+            <div class="doc-meta">
+              <span class="file-size">{{ formatFileSize(doc.size) }}</span>
+              <span class="separator">•</span>
+              <span class="upload-date">{{ formatDate(doc.uploadedAt) }}</span>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <div class="status-badge" :class="doc.status">
+              <div class="status-dot"></div>
+              {{ getStatusLabel(doc.status) }}
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Footer with Save Button -->
-      <div :style="{
-        padding: '16px 24px',
-        borderTop: '1px solid #E8EAED',
-        background: '#FAFBFC',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center'
-      }">
-        <div :style="{ fontSize: '13px', color: '#6B7280' }">
-          {{ pendingCount > 0 ? `${pendingCount}개 문서가 임베딩 대기 중입니다.` : '모든 문서가 처리되었습니다.' }}
-        </div>
+    <!-- Footer Action Bar -->
+    <div class="footer-bar" :class="{ visible: pendingCount > 0 }">
+      <div class="footer-content">
+        <span class="pending-info">
+          <span class="count">{{ pendingCount }}</span>개 문서 분석 대기 중
+        </span>
         <button
-          v-if="pendingCount > 0"
           @click="startEmbedding"
           :disabled="isEmbedding"
-          :style="{
-            padding: '10px 24px',
-            background: isEmbedding ? '#E8EAED' : 'linear-gradient(120deg, #FF8F68, #F76D47)',
-            borderRadius: '8px',
-            border: 'none',
-            cursor: isEmbedding ? 'not-allowed' : 'pointer',
-            fontSize: '13px',
-            fontWeight: 600,
-            color: '#FFFFFF',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            boxShadow: isEmbedding ? 'none' : '0px 2px 6px rgba(247,109,71,0.3)'
-          }"
+          class="process-btn"
         >
-          <RefreshCw v-if="isEmbedding" class="w-4 h-4 animate-spin" />
-          <Database v-else class="w-4 h-4" />
-          {{ isEmbedding ? '임베딩 진행 중...' : '문서 저장 (임베딩 시작)' }}
+          <Database v-if="!isEmbedding" class="icon" />
+          <RefreshCw v-else class="icon animate-spin" />
+          {{ isEmbedding ? '처리 중...' : '분석 시작' }}
         </button>
       </div>
     </div>
 
-    <!-- Embedding Progress Modal -->
-    <div
-      v-if="isEmbedding"
-      class="fixed inset-0 flex items-center justify-center"
-      :style="{
-        background: 'rgba(0,0,0,0.5)',
-        zIndex: 9999,
-        paddingLeft: '54px'
-      }"
-    >
-      <div :style="{
-        width: '400px',
-        background: '#FFFFFF',
-        borderRadius: '16px',
-        boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
-        overflow: 'hidden'
-      }">
-        <div :style="{
-          padding: '24px',
-          background: 'linear-gradient(120deg, #FF8F68, #F76D47)',
-          textAlign: 'center'
-        }">
-          <div :style="{
-            width: '60px',
-            height: '60px',
-            margin: '0 auto 16px',
-            border: '4px solid rgba(255,255,255,0.3)',
-            borderTop: '4px solid #FFFFFF',
-            borderRadius: '50%',
-            animation: 'spin 1s linear infinite'
-          }"></div>
-          <h3 :style="{ fontSize: '18px', fontWeight: 600, color: '#FFFFFF', marginBottom: '8px' }">
-            문서 임베딩 중
-          </h3>
-          <p :style="{ fontSize: '13px', color: 'rgba(255,255,255,0.9)' }">
-            문서를 분석하고 벡터 데이터베이스에 저장하고 있습니다.
-          </p>
-        </div>
-        <div :style="{ padding: '24px' }">
-          <div :style="{ marginBottom: '16px' }">
-            <div :style="{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }">
-              <span :style="{ fontSize: '13px', fontWeight: 500, color: '#1A1F2E' }">
-                {{ embeddingProgress.current }} / {{ embeddingProgress.total }} 문서
-              </span>
-              <span :style="{ fontSize: '13px', fontWeight: 600, color: '#FF8F68' }">
-                {{ Math.round(embeddingProgress.percent) }}%
-              </span>
-            </div>
-            <div :style="{
-              height: '8px',
-              background: '#E8EAED',
-              borderRadius: '4px',
-              overflow: 'hidden'
-            }">
-              <div :style="{
-                height: '100%',
-                width: embeddingProgress.percent + '%',
-                background: 'linear-gradient(120deg, #FF8F68, #F76D47)',
-                borderRadius: '4px',
-                transition: 'width 0.3s ease'
-              }"></div>
-            </div>
+    <!-- Progress Modal -->
+    <Transition name="fade">
+      <div v-if="isEmbedding" class="modal-overlay">
+        <div class="progress-modal">
+          <div class="modal-header">
+            <div class="spinner-ring"></div>
+            <h3>문서 분석 중</h3>
+            <p>벡터 데이터베이스에 처리 및 임베딩 중</p>
           </div>
-          <div :style="{ fontSize: '12px', color: '#6B7280', textAlign: 'center' }">
-            {{ embeddingProgress.currentFile || '처리 중...' }}
+          <div class="modal-body">
+            <div class="progress-info">
+              <span>{{ embeddingProgress.current }} / {{ embeddingProgress.total }}</span>
+              <span class="percent">{{ Math.round(embeddingProgress.percent) }}%</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div 
+                class="progress-bar-fill"
+                :style="{ width: `${embeddingProgress.percent}%` }"
+              ></div>
+            </div>
+            <p class="current-file">{{ embeddingProgress.currentFile }}</p>
           </div>
         </div>
       </div>
-    </div>
+    </Transition>
   </div>
 </template>
 
@@ -407,9 +190,9 @@ const embeddingProgress = ref({
   currentFile: ''
 })
 
-const documentTabs: Array<{ id: 'esg' | 'benchmark'; label: string; icon: typeof BookOpen; color: string }> = [
-  { id: 'esg', label: 'ESG 표준 문서', icon: markRaw(BookOpen), color: '#EA7F52' },
-  { id: 'benchmark', label: '벤치마킹 문서', icon: markRaw(Building2), color: '#EA7F52' }
+const documentTabs: Array<{ id: 'esg' | 'benchmark'; label: string; icon: typeof BookOpen }> = [
+  { id: 'esg', label: 'ESG 표준', icon: markRaw(BookOpen) },
+  { id: 'benchmark', label: '벤치마킹 보고서', icon: markRaw(Building2) }
 ]
 
 // Computed
@@ -433,6 +216,15 @@ const getDocumentCount = (type: string) => {
   return documents.value.filter(d => d.type === type).length
 }
 
+const getStatusLabel = (status: string) => {
+  switch (status) {
+    case 'embedded': return '분석 완료';
+    case 'processing': return '처리 중';
+    case 'pending': return '대기 중';
+    default: return status;
+  }
+}
+
 const formatFileSize = (bytes: number) => {
   if (bytes < 1024) return bytes + ' B'
   if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB'
@@ -443,10 +235,8 @@ const formatDate = (dateString: string) => {
   const date = new Date(dateString)
   return date.toLocaleDateString('ko-KR', {
     year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit'
+    month: 'long',
+    day: 'numeric'
   })
 }
 
@@ -478,7 +268,6 @@ const handleFileUpload = async (event: Event) => {
     })
 
     if (response.data.success) {
-      // Add uploaded files to the list
       const uploadedDocs = response.data.documents || []
       uploadedDocs.forEach((doc: any) => {
         documents.value.push({
@@ -493,7 +282,6 @@ const handleFileUpload = async (event: Event) => {
     }
   } catch (error: any) {
     console.error('Failed to upload files:', error)
-    // Fallback: add files locally even if server fails
     Array.from(input.files).forEach(file => {
       documents.value.push({
         id: Date.now().toString() + Math.random().toString(36).substr(2, 9),
@@ -526,7 +314,6 @@ const deleteDocument = async (docId: string) => {
     console.error('Failed to delete document:', error)
   }
 
-  // Remove from local list regardless of API success
   documents.value = documents.value.filter(d => d.id !== docId)
 }
 
@@ -556,7 +343,6 @@ const startEmbedding = async () => {
       embeddingProgress.value.current = i + 1
       embeddingProgress.value.percent = ((i + 1) / pendingDocs.length) * 100
 
-      // Update status to processing
       const docIndex = documents.value.findIndex(d => d.id === doc.id)
       if (docIndex !== -1) {
         documents.value[docIndex].status = 'processing'
@@ -568,19 +354,16 @@ const startEmbedding = async () => {
           document_name: doc.name
         })
 
-        // Update status to embedded
         if (docIndex !== -1) {
           documents.value[docIndex].status = 'embedded'
         }
       } catch (error) {
         console.error(`Failed to embed ${doc.name}:`, error)
-        // Still mark as embedded for demo purposes
         if (docIndex !== -1) {
           documents.value[docIndex].status = 'embedded'
         }
       }
 
-      // Small delay between files
       await new Promise(resolve => setTimeout(resolve, 500))
     }
   } finally {
@@ -592,7 +375,6 @@ const loadDocuments = async () => {
   isLoading.value = true
 
   try {
-    // Load ESG documents
     try {
       const esgResponse = await apiClient.get('/api/v1/standards/documents')
       if (esgResponse.data.success && esgResponse.data.documents) {
@@ -611,7 +393,6 @@ const loadDocuments = async () => {
       console.log('ESG documents API not available')
     }
 
-    // Load Benchmark documents
     try {
       const benchmarkResponse = await apiClient.get('/api/v1/benchmark/documents')
       if (benchmarkResponse.data.success && benchmarkResponse.data.documents) {
@@ -640,13 +421,481 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.document-list-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #F8F9FB;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+}
+
+/* Header Section */
+.header-section {
+  padding: 32px 48px;
+  background: white;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 32px;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.subtitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+}
+
+.upload-btn {
+  position: relative;
+  padding: 10px 24px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  border: 1px solid #E5E7EB;
+  color: #1a1a1a;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.upload-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  background: #FAFAFA;
+  border-color: #FF6B35;
+}
+
+.upload-btn:active {
+  transform: translateY(0);
+}
+
+.btn-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.upload-btn .icon {
+  color: #FF6B35; /* Orange accent */
+  transition: transform 0.3s ease;
+}
+
+.upload-btn:hover .icon {
+  transform: scale(1.1);
+}
+
+.btn-glow {
+  display: none;
+}
+
+.hidden-input {
+  display: none;
+}
+
+/* Controls Bar */
+.controls-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tabs-container {
+  display: flex;
+  gap: 8px;
+  background: #F3F4F6;
+  padding: 4px;
+  border-radius: 12px;
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-btn.active {
+  background: white;
+  color: var(--color-primary, #FF6B35);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.count-badge {
+  background: rgba(0,0,0,0.05);
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 11px;
+}
+
+.tab-btn.active .count-badge {
+  background: rgba(255, 107, 53, 0.1);
+  color: var(--color-primary, #FF6B35);
+}
+
+.search-container {
+  position: relative;
+  width: 300px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: #999;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 16px 10px 40px;
+  border: 1px solid #E5E7EB;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--color-primary, #FF6B35);
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+/* Content Area */
+.content-area {
+  flex: 1;
+  padding: 32px 48px;
+  overflow-y: auto;
+}
+
+.document-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.document-card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  border: 1px solid rgba(0,0,0,0.03);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.document-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+  border-color: rgba(255, 107, 53, 0.1);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.file-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F3F4F6;
+  color: #666;
+}
+
+.file-icon-wrapper.esg {
+  background: rgba(255, 107, 53, 0.1);
+  color: #FF6B35;
+}
+
+.file-icon-wrapper.benchmark {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3B82F6;
+}
+
+.action-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: #999;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.action-btn:hover {
+  background: #FEE2E2;
+  color: #EF4444;
+}
+
+.card-body {
+  flex: 1;
+}
+
+.doc-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.doc-meta {
+  font-size: 12px;
+  color: #888;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.separator {
+  color: #DDD;
+}
+
+.card-footer {
+  padding-top: 16px;
+  border-top: 1px solid #F3F4F6;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-badge.embedded {
+  background: #ECFDF5;
+  color: #059669;
+}
+
+.status-badge.pending {
+  background: #FFFBEB;
+  color: #D97706;
+}
+
+.status-badge.processing {
+  background: #EFF6FF;
+  color: #2563EB;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  color: #666;
+}
+
+.empty-illustration {
+  width: 120px;
+  height: 120px;
+  background: #F3F4F6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.empty-icon {
+  width: 48px;
+  height: 48px;
+  color: #9CA3AF;
+  z-index: 2;
+}
+
+.empty-circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px dashed #E5E7EB;
+  animation: spin 10s linear infinite;
+}
+
+/* Footer Bar */
+.footer-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  padding: 16px 48px;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.05);
+}
+
+.footer-bar.visible {
+  transform: translateY(0);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pending-info {
+  font-size: 14px;
+  color: #666;
+}
+
+.pending-info .count {
+  font-weight: 700;
+  color: var(--color-primary, #FF6B35);
+}
+
+.process-btn {
+  padding: 10px 24px;
+  background: #FFFFFF;
+  color: #1a1a1a;
+  border: 1px solid #E5E7EB;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.process-btn .icon {
+  color: #FF6B35;
+}
+
+.process-btn:hover {
+  background: #FAFAFA;
+  border-color: #FF6B35;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.progress-modal {
+  background: white;
+  width: 400px;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.modal-header {
+  margin-bottom: 24px;
+}
+
+.spinner-ring {
+  width: 60px;
+  height: 60px;
+  border: 4px solid #F3F4F6;
+  border-top-color: var(--color-primary, #FF6B35);
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  animation: spin 1s linear infinite;
+}
+
+.progress-bar-bg {
+  height: 8px;
+  background: #F3F4F6;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 16px 0;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--color-primary, #FF6B35);
+  transition: width 0.3s ease;
+}
+
 @keyframes spin {
-  from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
-.document-item:hover {
-  border-color: #D1D5DB;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

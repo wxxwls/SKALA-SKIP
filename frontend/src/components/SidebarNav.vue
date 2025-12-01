@@ -14,7 +14,8 @@ import {
   ChevronLeft,
   ChevronRight,
   BarChart3,
-  LogOut
+  LogOut,
+  FolderOpen
 } from 'lucide-vue-next';
 import { useAuthStore } from '@/stores';
 import skipLogo from '@/assets/SKIP-removebg-preview.png';
@@ -33,6 +34,7 @@ const showProfileMenu = ref(false);
 const menuItems = [
   { id: 'Home', path: '/', label: 'Home', title: 'Home', icon: markRaw(Home) },
   { id: 'News', path: '/news', label: '뉴스', title: '뉴스', icon: markRaw(Newspaper) },
+  { id: 'Documents', path: '/documents', label: '문서목록', title: '문서목록', icon: markRaw(FolderOpen) },
   { id: 'IssuePool', path: '/issue-pool', label: '이슈풀 구성', title: '이슈풀 구성', icon: markRaw(List) },
   { id: 'Materiality', path: '/materiality', label: '중대성 평가', title: '중대성 평가', icon: markRaw(BarChart3) },
   { id: 'Report', path: '/report', label: '보고서 작성', title: '보고서 작성', icon: markRaw(FileText) },

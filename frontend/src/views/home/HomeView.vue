@@ -119,8 +119,10 @@ const currentMonth = computed(() => new Date().getMonth() + 1);
 // 현재 진행도 계산 (1월~12월 = 12개월 기준)
 const currentProgress = computed(() => {
   const month = currentMonth.value;
-  // 1월=0%, 12월=100% (12개월 중 현재 위치)
-  return ((month - 1) / 11) * 100;
+  // 12월이면 100% 확실히 채우기
+  if (month === 12) return 100;
+  // 나머지 월은 비율 계산
+  return (month / 12) * 100;
 });
 
 // 기간 상태 확인
@@ -407,7 +409,7 @@ async function refreshKeywordData(forceRefresh = false) {
   }
   isLoadingKeywords.value = true;
   try {
-    const response = await mediaApi.analyzeNews({ keywords: ['SK', 'ESG'], maxPages: 5 });
+    const response = await mediaApi.analyzeNews({ keywords: ['SK', 'ESG'], maxPages: 10 }); // 한 달치 뉴스 수집
     totalNewsCount.value = response.uniqueArticles || 0;
     // (Simplified logic for brevity - keeping core functionality)
   } catch (e) { console.error(e); }
@@ -829,7 +831,7 @@ onUnmounted(() => {
   display: flex;
   width: 100%;
   height: 100%;
-  background: #F8FAFC; /* Light Body Background */
+  background: #f8f9fa; /* Light gray background - same as NewsView */
   color: #0F172A; /* Dark Body Text */
   font-family: 'Inter', -apple-system, sans-serif;
 }

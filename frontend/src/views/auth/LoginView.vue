@@ -10,6 +10,7 @@ import skipLogo from '@/assets/SKIP-removebg-preview.png';
 import esgMark from '@/assets/ESG-removebg-preview.png';
 import butterflyImg from '@/assets/나비-removebg-preview.png';
 import abstractWave from '@/assets/abstract_wave.png';
+import introBg from '@/assets/scifi_network_bg.png';
 
 
 // 인트로 애니메이션 상태
@@ -238,6 +239,7 @@ function handlePasswordBlur(e: FocusEvent) {
     <div v-if="showIntro" class="intro-screen">
       <!-- Deep Space Background -->
       <div class="intro-bg">
+        <img :src="introBg" alt="background" class="intro-bg-image" />
         <div class="nebula-layer"></div>
         <div class="burst-layer"></div>
         <div class="stars-layer-1"></div>
@@ -400,6 +402,12 @@ function handlePasswordBlur(e: FocusEvent) {
         </div>
       </div>
     </div>
+
+    <!-- Mute Button on Login Screen -->
+    <button class="mute-toggle login-mute" @click="toggleMute" :title="isMuted ? '소리 켜기' : '음소거'">
+      <Volume2 v-if="!isMuted" class="mute-toggle-icon" />
+      <VolumeX v-else class="mute-toggle-icon" />
+    </button>
   </div>
   </Transition>
 </template>
@@ -425,7 +433,7 @@ function handlePasswordBlur(e: FocusEvent) {
   flex-direction: column;
   align-items: flex-start;
   padding-left: 250px;
-  bottom: 40%;
+  bottom: 30%;
   left: 0;
 }
 
@@ -435,6 +443,17 @@ function handlePasswordBlur(e: FocusEvent) {
   overflow: hidden;
   background: radial-gradient(circle at 50% 50%, #1a1a3a 0%, #050510 100%);
   animation: bgZoom 10s ease-out forwards;
+}
+
+.intro-bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+  z-index: 0;
+  filter: blur(8px);
 }
 
 @keyframes bgZoom {
@@ -1188,5 +1207,11 @@ function handlePasswordBlur(e: FocusEvent) {
 .intro-mute {
   bottom: 40px;
   right: 40px;
+}
+
+/* Login screen mute button */
+.login-mute {
+  bottom: 30px;
+  left: 30px;
 }
 </style>

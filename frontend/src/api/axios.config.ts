@@ -8,7 +8,7 @@ import axios from 'axios';
 
 const apiClient = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080',
-  timeout: 30000,
+  timeout: 120000, // 2분 (뉴스 API 등 오래 걸리는 요청 대응)
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json'
