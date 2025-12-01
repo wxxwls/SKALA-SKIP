@@ -1,0 +1,17 @@
+{
+  "embedding": {
+    "default": "sentence-transformers/all-MiniLM-L6-v2",
+    "multilingual": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "korean": "jhgan/ko-sroberta-multitask"
+  },
+  "sentiment": {
+    "default": "nlptown/bert-base-multilingual-uncased-sentiment",
+    "korean": "snunlp/KR-FinBert-SC"
+  },
+  "llm": {
+    "openai": {
+      "chat": "gpt-4o-mini",
+      "embedding": "text-embedding-3-small"
+    }
+  }
+}

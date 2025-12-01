@@ -1,0 +1,586 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Backend Development Standard Schema",
+  "version": "1.0",
+  "project": "ESG Issue Pool Construction AI System",
+  "team": "SKALA Team 7",
+
+  "techStack": {
+    "springBoot": {
+      "framework": "Spring Boot 3.2.x",
+      "java": "Java 17 LTS",
+      "buildTool": "Gradle 8.x",
+      "database": "PostgreSQL 15.x",
+      "orm": "Spring Data JPA",
+      "security": "Spring Security 6.x",
+      "testing": "JUnit 5, Mockito"
+    },
+    "fastAPI": {
+      "framework": "FastAPI 0.110.x",
+      "python": "Python 3.11",
+      "database": "PostgreSQL 15.x",
+      "orm": "SQLAlchemy 2.x",
+      "vectorDB": "Qdrant 1.x",
+      "validation": "Pydantic 2.x",
+      "testing": "pytest 8.x"
+    }
+  },
+
+  "layeredArchitecture": {
+    "layers": [
+      "Controller/API Layer",
+      "Service Layer",
+      "Repository Layer",
+      "Database Layer"
+    ],
+    "responsibilities": {
+      "controller": [
+        "HTTP request/response handling",
+        "DTO conversion",
+        "Input validation",
+        "No business logic"
+      ],
+      "service": [
+        "Business logic implementation",
+        "Transaction management",
+        "Domain rules application",
+        "Repository calls"
+      ],
+      "repository": [
+        "Data access",
+        "CRUD operations",
+        "Query writing",
+        "No business logic"
+      ]
+    }
+  },
+
+  "namingConventions": {
+    "java": {
+      "classes": {
+        "controller": "<Domain><Action>Controller",
+        "service": "<Domain>Service",
+        "serviceImpl": "<Domain>ServiceImpl",
+        "repository": "<Domain>Repository",
+        "dto": "<Domain><Purpose>DTO",
+        "entity": "<Domain>",
+        "exception": "<Purpose>Exception",
+        "examples": [
+          "IssuePoolController",
+          "IssuePoolService",
+          "IssuePoolServiceImpl",
+          "IssuePoolRepository",
+          "IssuePoolCreateRequest",
+          "IssuePool",
+          "BusinessException"
+        ]
+      },
+      "variables": {
+        "pattern": "camelCase",
+        "examples": ["companyId", "issueList", "createdAt"]
+      },
+      "methods": {
+        "pattern": "camelCase (verb first)",
+        "examples": ["generateIssuePool", "findActiveIssues", "isActive"]
+      },
+      "constants": {
+        "pattern": "UPPER_SNAKE_CASE",
+        "examples": ["DEFAULT_PAGE_SIZE", "MAX_ISSUE_COUNT"]
+      }
+    },
+    "python": {
+      "files": {
+        "pattern": "snake_case.py",
+        "examples": ["issue_pool_service.py", "news_repository.py"]
+      },
+      "classes": {
+        "pattern": "PascalCase",
+        "examples": ["IssuePoolService", "NewsRepository"]
+      },
+      "functions": {
+        "pattern": "snake_case (verb first)",
+        "examples": ["generate_issue_pool", "fetch_recent_news"]
+      },
+      "variables": {
+        "pattern": "snake_case",
+        "examples": ["company_id", "issue_list", "embedding_vector"]
+      },
+      "constants": {
+        "pattern": "UPPER_SNAKE_CASE",
+        "examples": ["DEFAULT_PAGE_SIZE", "MAX_ISSUE_COUNT"]
+      }
+    }
+  },
+
+  "apiStandards": {
+    "urlFormat": "/api/v1/{resource}/{id}/{action}",
+    "urlPattern": "kebab-case",
+    "httpMethods": {
+      "GET": "Retrieve (no server state change, idempotent)",
+      "POST": "Create, execute actions (non-idempotent)",
+      "PUT": "Full update (idempotent)",
+      "PATCH": "Partial update (non-idempotent)",
+      "DELETE": "Delete (idempotent)"
+    },
+    "examples": [
+      "GET /api/v1/issue-pool/{companyId}",
+      "POST /api/v1/issue-pool/{companyId}/generate",
+      "GET /api/v1/news/feed?companyId=123&days=7"
+    ],
+    "responseWrapper": {
+      "success": {
+        "success": true,
+        "data": "Actual payload",
+        "timestamp": "ISO 8601 datetime"
+      },
+      "error": {
+        "success": false,
+        "error": {
+          "code": "Error code",
+          "message": "Error message",
+          "details": "Additional details",
+          "timestamp": "ISO 8601 datetime"
+        }
+      },
+      "pagination": {
+        "success": true,
+        "data": {
+          "items": "Array of items",
+          "meta": {
+            "page": "Current page number",
+            "pageSize": "Items per page",
+            "totalCount": "Total number of items",
+            "totalPages": "Total number of pages"
+          }
+        }
+      }
+    }
+  },
+
+  "exceptionHandling": {
+    "errorCodes": {
+      "format": "<CATEGORY><NUMBER>",
+      "categories": {
+        "CM": "Common errors",
+        "ISS": "Issue pool errors",
+        "AUTH": "Authentication errors",
+        "NEWS": "News errors"
+      },
+      "examples": {
+        "CM001": "Invalid input value",
+        "CM999": "Internal server error",
+        "ISS001": "Issue pool not found",
+        "ISS002": "Issue pool already exists",
+        "AUTH001": "Unauthorized",
+        "AUTH002": "Forbidden"
+      }
+    },
+    "handling": {
+      "springBoot": "GlobalExceptionHandler with @RestControllerAdvice",
+      "fastAPI": "Exception handlers with @app.exception_handler"
+    }
+  },
+
+  "databaseStandards": {
+    "namingRules": {
+      "table": {
+        "pattern": "snake_case, plural",
+        "examples": ["issue_pools", "news_articles"]
+      },
+      "column": {
+        "pattern": "snake_case",
+        "examples": ["company_id", "created_at"]
+      },
+      "primaryKey": {
+        "pattern": "id or <table>_id",
+        "examples": ["id", "issue_pool_id"]
+      },
+      "foreignKey": {
+        "pattern": "<referenced_table>_id",
+        "examples": ["company_id", "user_id"]
+      },
+      "index": {
+        "pattern": "idx_<table>_<column>",
+        "examples": ["idx_issue_pools_company_id"]
+      },
+      "constraint": {
+        "pattern": "<type>_<table>_<column>",
+        "examples": ["uk_users_email", "fk_issues_pool"]
+      }
+    },
+    "requiredColumns": [
+      "created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",
+      "updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",
+      "created_by VARCHAR(50)",
+      "updated_by VARCHAR(50)"
+    ]
+  },
+
+  "transactionManagement": {
+    "springBoot": {
+      "default": "@Transactional(readOnly = true)",
+      "write": "@Transactional",
+      "separate": "@Transactional(propagation = Propagation.REQUIRES_NEW)"
+    },
+    "fastAPI": {
+      "pattern": "async with session.begin()"
+    }
+  },
+
+  "logging": {
+    "levels": {
+      "ERROR": "System errors, exceptions",
+      "WARN": "Warnings (recoverable)",
+      "INFO": "Major business logic flow",
+      "DEBUG": "Detailed debugging info",
+      "TRACE": "Very detailed info"
+    },
+    "format": {
+      "java": "log.info(\"Message: {}\", variable)",
+      "python": "logger.info(f\"Message: {variable}\")"
+    }
+  },
+
+  "environmentVariables": {
+    "springBoot": {
+      "file": "application.yml",
+      "format": "${VAR_NAME:default_value}",
+      "examples": {
+        "DB_URL": "jdbc:postgresql://localhost:5432/esgdb",
+        "DB_USERNAME": "postgres",
+        "DB_PASSWORD": "password",
+        "JWT_SECRET": "changeme"
+      }
+    },
+    "fastAPI": {
+      "file": ".env",
+      "examples": {
+        "DATABASE_URL": "postgresql+asyncpg://postgres:password@localhost:5432/esgdb",
+        "VECTOR_DB_URL": "http://localhost:6333",
+        "OPENAI_API_KEY": "sk-...",
+        "JWT_SECRET": "changeme"
+      }
+    }
+  },
+
+  "testing": {
+    "springBoot": {
+      "framework": "JUnit 5",
+      "annotations": ["@SpringBootTest", "@Transactional", "@Test"],
+      "structure": "Given-When-Then"
+    },
+    "fastAPI": {
+      "framework": "pytest",
+      "annotations": ["@pytest.mark.asyncio"],
+      "structure": "Given-When-Then"
+    },
+    "coverage": {
+      "minimum": 80,
+      "target": "statements, branches, functions, lines"
+    }
+  },
+
+  "gitWorkflow": {
+    "branches": {
+      "main": "Production deployment",
+      "feature/*": "Feature development",
+      "fix/*": "Bug fixes"
+    },
+    "commitMessage": {
+      "format": "<type>: <subject>",
+      "types": {
+        "feat": "New feature",
+        "fix": "Bug fix",
+        "docs": "Documentation",
+        "style": "Formatting",
+        "refactor": "Code refactoring",
+        "test": "Test code",
+        "chore": "Build, dependencies"
+      }
+    }
+  },
+
+  "prohibited": [
+    "Business logic in Controller",
+    "Hardcoded URLs, API keys, passwords",
+    "printStackTrace() usage",
+    "Database credentials in code",
+    "Write operations without transaction"
+  ],
+
+  "mandatory": [
+    "Follow Layered Architecture",
+    "Use standard Response Wrapper for all APIs",
+    "Handle exceptions with GlobalExceptionHandler",
+    "Manage configurations via environment variables",
+    "Add logging for major operations",
+    "Write unit tests for new code",
+    "Follow naming conventions strictly"
+  ],
+
+  "checklist": [
+    "Layered Architecture followed",
+    "Standard Response Wrapper used",
+    "Input validation implemented",
+    "Exception handling implemented",
+    "Logging added",
+    "Transaction settings appropriate",
+    "Test code written",
+    "API documented",
+    "Environment variables used (no hardcoding)",
+    "Git commit message rules followed"
+  ],
+
+  "metadata": {
+    "version": "1.0",
+    "lastModified": "2025-11-18",
+    "author": "SKALA Team 7",
+    "status": "active"
+  }
+}
+,
+  
+  "esgProjectSpecific": {
+    "constants": {
+      "MAX_TOPIC_COUNT": {
+        "value": 20,
+        "description": "Maximum topics before stakeholder survey"
+      },
+      "MAX_CORE_ISSUE_COUNT": {
+        "value": 20,
+        "description": "Maximum core issues after materiality assessment"
+      },
+      "SURVEY_REQUIRED_SELECTION": {
+        "value": 5,
+        "description": "Required number of issues to select in survey"
+      },
+      "SURVEY_SCORE_MIN": 1,
+      "SURVEY_SCORE_MAX": 3,
+      "NEWS_RETENTION_YEARS": 2
+    },
+    
+    "errorCodeSystem": {
+      "format": "ESG-<MODULE>-<TYPE>-<NUMBER>",
+      "modules": {
+        "STD": "Standard Document",
+        "INT": "Internal Analysis",
+        "BMK": "Benchmarking",
+        "MED": "Media Analysis",
+        "NWS": "News Intelligence",
+        "SVY": "Stakeholder Survey",
+        "MAT": "Materiality Assessment",
+        "RPT": "Report Generation",
+        "CHAT": "RAG Chatbot",
+        "CRB": "Carbon Credit"
+      },
+      "types": {
+        "VAL": "Validation Error",
+        "CRAWL": "Crawling Error",
+        "SEARCH": "Search Error",
+        "AI": "AI Processing Error",
+        "RAG": "RAG System Error",
+        "LLM": "LLM API Error",
+        "PRED": "Prediction Error",
+        "RETENTION": "Data Retention Error"
+      },
+      "examples": [
+        "ESG-STD-VAL-001: Standard document format error",
+        "ESG-INT-VAL-002: Data Hub integration failed",
+        "ESG-SVY-VAL-001: Must select exactly 5 issues",
+        "ESG-MAT-LIMIT-001: 20 Topic limit exceeded",
+        "ESG-RPT-AI-001: AI draft generation failed",
+        "ESG-CHAT-RAG-001: RAG context retrieval failed",
+        "ESG-CRB-PRED-001: Price prediction error"
+      ]
+    },
+    
+    "apiEndpoints": {
+      "issuePool": {
+        "generate": "POST /api/v1/issue-pool/{companyId}/generate",
+        "survey": "POST /api/v1/issue-pool/{companyId}/survey",
+        "materiality": "GET /api/v1/issue-pool/{companyId}/materiality"
+      },
+      "report": {
+        "draft": "POST /api/v1/report/{companyId}/draft",
+        "compare": "GET /api/v1/report/{companyId}/compare?current={year}&previous={year}"
+      },
+      "carbon": {
+        "signals": "GET /api/v1/carbon/signals?company={id}"
+      },
+      "dataHub": {
+        "kpi": "GET /api/v1/datahub/kpi/{companyId}/{kpiCode}"
+      }
+    },
+    
+    "domainModels": {
+      "IssuePool": {
+        "entity": "issue_pool",
+        "constraints": {
+          "topics": "Maximum 20 topics (@Size(max=20))"
+        },
+        "fields": [
+          "id (Long)",
+          "company_id (String)",
+          "year (Integer)",
+          "topics (List<Topic>)",
+          "created_at (LocalDateTime)",
+          "updated_at (LocalDateTime)"
+        ]
+      },
+      "Topic": {
+        "entity": "topics",
+        "constraints": {
+          "financial_score": "0.0 - 10.0 (@DecimalMin, @DecimalMax)",
+          "impact_score": "0.0 - 10.0 (@DecimalMin, @DecimalMax)"
+        },
+        "fields": [
+          "id (Long)",
+          "issue_pool_id (Long FK)",
+          "title (String)",
+          "description (TEXT)",
+          "financial_score (Double, X-axis)",
+          "impact_score (Double, Y-axis)",
+          "is_core_issue (Boolean)",
+          "data_hub_linked (Boolean)"
+        ]
+      },
+      "StakeholderSurvey": {
+        "entity": "stakeholder_surveys",
+        "constraints": {
+          "issue_scores": "Exactly 5 issues (@Size(min=5, max=5))",
+          "score_range": "1-3 points"
+        },
+        "fields": [
+          "id (Long)",
+          "company_id (String)",
+          "stakeholder_email (String)",
+          "issue_scores (Map<Long, Integer>)",
+          "submitted_at (LocalDateTime)"
+        ]
+      },
+      "NewsIntelligence": {
+        "entity": "news_intelligence",
+        "constraints": {
+          "retention_until": "Auto-calculated: collected_at + 2 years"
+        },
+        "fields": [
+          "id (Long)",
+          "company_id (String)",
+          "title (TEXT)",
+          "content (TEXT)",
+          "published_at (LocalDateTime)",
+          "collected_at (LocalDateTime)",
+          "retention_until (LocalDateTime)"
+        ]
+      }
+    },
+    
+    "validationRules": {
+      "topicLimit": {
+        "rule": "topics.size() <= 20",
+        "errorCode": "ESG-MAT-LIMIT-001",
+        "message": "Maximum 20 topics allowed"
+      },
+      "surveySelection": {
+        "rule": "issueScores.size() == 5",
+        "errorCode": "ESG-SVY-VAL-001",
+        "message": "Must select exactly 5 issues"
+      },
+      "surveyScore": {
+        "rule": "1 <= score <= 3",
+        "errorCode": "ESG-SVY-VAL-002",
+        "message": "Score must be between 1 and 3"
+      },
+      "dataHubIntegration": {
+        "errorCode": "ESG-INT-VAL-002",
+        "message": "Data Hub integration failed"
+      }
+    },
+    
+    "aiServiceSeparation": {
+      "ESGChatbot": {
+        "purpose": "General ESG Q&A",
+        "canWriteReport": false,
+        "ragEnabled": true,
+        "contextSources": [
+          "Sustainability reports",
+          "Issue Pool",
+          "Data Hub",
+          "News Intelligence"
+        ]
+      },
+      "ReportAssistant": {
+        "purpose": "Report writing only",
+        "canWriteReport": true,
+        "ragEnabled": true,
+        "contextSources": [
+          "Previous reports",
+          "Issue Pool",
+          "Data Hub KPIs",
+          "Benchmarking data"
+        ]
+      }
+    },
+    
+    "carbonCreditSignals": {
+      "signals": ["BUY", "SELL", "HOLD"],
+      "response": {
+        "signal": "BUY|SELL|HOLD",
+        "confidence": "0.0 - 1.0",
+        "predicted_price": "Float",
+        "current_price": "Float",
+        "recommendation": "String"
+      },
+      "algorithm": {
+        "priceChangeThreshold": 5.0,
+        "confidenceThreshold": 0.7
+      }
+    },
+    
+    "newsRetentionPolicy": {
+      "retentionPeriod": "2 years from collection date",
+      "scheduledCleanup": "Daily at 2:00 AM (cron: 0 0 2 * * ?)",
+      "implementation": "@PrePersist: retention_until = collected_at + 2 years"
+    },
+    
+    "reportComparison": {
+      "endpoint": "/api/v1/report/{companyId}/compare",
+      "parameters": ["current", "previous"],
+      "response": {
+        "currentYear": "Integer",
+        "previousYear": "Integer",
+        "metrics": {
+          "carbonEmissions": {
+            "current": "Double",
+            "previous": "Double",
+            "change": "Percentage"
+          }
+        }
+      }
+    },
+    
+    "benchmarking": {
+      "crawlTargets": ["Competitor sustainability reports"],
+      "errorCode": "ESG-BMK-CRAWL-001",
+      "storage": {
+        "entity": "benchmark_reports",
+        "fields": ["url", "title", "content", "crawled_at"]
+      }
+    }
+  },
+  
+  "esgChecklist": [
+    "20 Topic limit validation implemented",
+    "5 Issue selection constraint in survey",
+    "1-3 score range validation",
+    "ESG error code format: ESG-<MODULE>-<TYPE>-<NUMBER>",
+    "Error response includes code, message, details",
+    "2-year news retention with scheduled cleanup",
+    "Year-over-year report comparison API",
+    "Data Hub linkage indicator field",
+    "ESG Chatbot and Report Assistant separation",
+    "Carbon trading signal generation (BUY/SELL/HOLD)",
+    "Double Materiality Matrix calculation (X: Financial, Y: Impact)",
+    "Benchmarking report auto-crawling"
+  ]
+}

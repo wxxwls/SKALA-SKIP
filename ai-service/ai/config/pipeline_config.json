@@ -1,0 +1,19 @@
+{
+  "embedding_pipeline": {
+    "batch_size": 32,
+    "chunk_size": 500,
+    "chunk_overlap": 50
+  },
+  "sentiment_pipeline": {
+    "batch_size": 16,
+    "max_length": 512
+  },
+  "topic_pipeline": {
+    "n_topics": 10,
+    "min_topic_size": 10
+  },
+  "rag_pipeline": {
+    "top_k": 5,
+    "max_context_length": 4000
+  }
+}

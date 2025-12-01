@@ -1,0 +1,737 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Frontend Development Standard Schema",
+  "version": "1.0",
+  "project": "ESG Issue Pool Construction AI System",
+  "team": "SKALA Team 7",
+
+  "techStack": {
+    "framework": {
+      "name": "Vue",
+      "version": "3.4.x",
+      "required": true
+    },
+    "buildTool": {
+      "name": "Vite",
+      "version": "5.x",
+      "required": true
+    },
+    "stateManagement": {
+      "name": "Pinia",
+      "version": "2.x",
+      "required": true
+    },
+    "router": {
+      "name": "Vue Router",
+      "version": "4.x",
+      "required": true
+    },
+    "uiLibraries": [
+      {
+        "name": "Vuetify",
+        "version": "3.x",
+        "purpose": "UI components"
+      },
+      {
+        "name": "TailwindCSS",
+        "version": "3.x",
+        "purpose": "Layout and styling"
+      }
+    ],
+    "visualization": [
+      {
+        "name": "ECharts",
+        "version": "5.x",
+        "purpose": "Charts and graphs"
+      },
+      {
+        "name": "AG Grid",
+        "version": "31.x",
+        "purpose": "Data tables"
+      }
+    ],
+    "httpClient": {
+      "name": "Axios",
+      "version": "1.x",
+      "required": true
+    },
+    "language": {
+      "name": "TypeScript",
+      "version": "5.x",
+      "required": true
+    }
+  },
+
+  "projectStructure": {
+    "directories": {
+      "src/assets": "Static files (images, fonts, etc.)",
+      "src/components": "Reusable UI components",
+      "src/components/common": "Common components (Button, Modal, etc.)",
+      "src/components/chart": "Chart components",
+      "src/components/card": "Card-type components",
+      "src/layouts": "Layout components",
+      "src/views": "Routable pages",
+      "src/views/home": "Home page",
+      "src/views/news": "News page",
+      "src/views/issuepool": "Issue pool pages",
+      "src/views/report": "Report pages",
+      "src/views/carbon": "Carbon prediction pages",
+      "src/views/chatbot": "AI chatbot pages",
+      "src/stores": "Pinia stores",
+      "src/api": "API call modules",
+      "src/composables": "Reusable Composition API logic",
+      "src/router": "Router configuration",
+      "src/utils": "Utility functions",
+      "src/types": "TypeScript type definitions",
+      "src/styles": "Global styles"
+    }
+  },
+
+  "namingConventions": {
+    "files": {
+      "components": {
+        "pattern": "PascalCase.vue",
+        "examples": ["IssueCard.vue", "ChartWrapper.vue"],
+        "rules": [
+          "Must use PascalCase",
+          "Must have .vue extension",
+          "Must be at least 2 words (no single-word components)"
+        ]
+      },
+      "views": {
+        "pattern": "PascalCaseView.vue",
+        "examples": ["IssuePoolView.vue", "CarbonDashboardView.vue"],
+        "rules": [
+          "Must use PascalCase",
+          "Must end with 'View'",
+          "Must have .vue extension"
+        ]
+      },
+      "stores": {
+        "pattern": "camelCaseStore.ts",
+        "examples": ["issuePoolStore.ts", "authStore.ts"],
+        "rules": [
+          "Must use camelCase",
+          "Must end with 'Store'",
+          "Must have .ts extension"
+        ]
+      },
+      "api": {
+        "pattern": "camelCase.api.ts",
+        "examples": ["issuePool.api.ts", "carbon.api.ts"],
+        "rules": [
+          "Must use camelCase",
+          "Must end with '.api.ts'",
+          "One file per domain"
+        ]
+      },
+      "composables": {
+        "pattern": "usePascalCase.ts",
+        "examples": ["useChart.ts", "useValidation.ts"],
+        "rules": [
+          "Must start with 'use'",
+          "Must use PascalCase after 'use'",
+          "Must have .ts extension"
+        ]
+      }
+    },
+    "variables": {
+      "pattern": "camelCase",
+      "examples": ["issueList", "selectedCompany", "chartData"],
+      "rules": [
+        "Must use camelCase",
+        "Must be descriptive",
+        "No abbreviations unless commonly known"
+      ]
+    },
+    "functions": {
+      "pattern": "camelCase",
+      "examples": ["fetchIssueList", "generateReport", "handleClick"],
+      "rules": [
+        "Must use camelCase",
+        "Must start with verb",
+        "Boolean functions must start with is/has/can"
+      ]
+    },
+    "constants": {
+      "pattern": "UPPER_SNAKE_CASE",
+      "examples": ["DEFAULT_PAGE_SIZE", "MAX_ISSUE_COUNT", "API_BASE_URL"],
+      "rules": [
+        "Must use UPPER_SNAKE_CASE",
+        "Must be declared at top of file or in constants file"
+      ]
+    },
+    "props": {
+      "pattern": "camelCase",
+      "examples": ["issueId", "chartData", "isVisible"],
+      "rules": [
+        "Must use camelCase",
+        "Must have TypeScript type definition"
+      ]
+    },
+    "emits": {
+      "pattern": "kebab-case",
+      "examples": ["update:modelValue", "issue-selected", "close"],
+      "rules": [
+        "Must use kebab-case",
+        "Must have TypeScript type definition"
+      ]
+    }
+  },
+
+  "codingConventions": {
+    "composition API": {
+      "required": true,
+      "scriptSetup": true,
+      "optionsAPI": false,
+      "description": "Must use Composition API with <script setup>"
+    },
+    "codeOrder": [
+      "Imports",
+      "Props/Emit definitions",
+      "Constants",
+      "Composables/Stores",
+      "Reactive state (ref, reactive)",
+      "Computed properties",
+      "Methods/Functions",
+      "Lifecycle hooks"
+    ],
+    "indentation": {
+      "type": "spaces",
+      "size": 2,
+      "tabsAllowed": false
+    },
+    "semicolons": {
+      "required": true,
+      "description": "All statements must end with semicolon"
+    },
+    "quotes": {
+      "preferred": "single",
+      "allowDouble": true
+    },
+    "lineLength": {
+      "max": 120,
+      "enforced": true
+    },
+    "typescript": {
+      "required": true,
+      "strict": true,
+      "noImplicitAny": true,
+      "typeAnnotationsRequired": true
+    }
+  },
+
+  "stateManagement": {
+    "library": "Pinia",
+    "storeSeparation": "domain-based",
+    "storeStructure": {
+      "state": "Reactive data using ref/reactive",
+      "getters": "Computed derived state",
+      "actions": "Methods to mutate state and call APIs"
+    },
+    "rules": [
+      "One store per domain (auth, issuePool, news, carbon)",
+      "No direct API calls from components - must use store actions",
+      "No direct state mutation - use actions only",
+      "Use Composition API style (setup() with return)"
+    ]
+  },
+
+  "routing": {
+    "library": "Vue Router 4",
+    "pathPattern": "kebab-case",
+    "namePattern": "PascalCase",
+    "examples": [
+      {
+        "path": "/issue-pool",
+        "name": "IssuePool",
+        "component": "IssuePoolView.vue"
+      },
+      {
+        "path": "/carbon/dashboard",
+        "name": "CarbonDashboard",
+        "component": "CarbonDashboardView.vue"
+      }
+    ],
+    "meta": {
+      "title": "Page title for browser tab",
+      "requiresAuth": "Boolean for authentication requirement",
+      "layout": "Layout component to use (default/auth/blank)"
+    }
+  },
+
+  "apiIntegration": {
+    "client": "Axios",
+    "baseURL": "Set via environment variable VITE_API_BASE_URL",
+    "timeout": 30000,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "authentication": {
+      "type": "Bearer Token",
+      "storage": "localStorage",
+      "key": "access_token"
+    },
+    "errorHandling": {
+      "401": "Clear token and redirect to login",
+      "500": "Show error toast and log error",
+      "network": "Show network error message"
+    },
+    "responseStructure": {
+      "success": {
+        "success": true,
+        "data": "Actual payload"
+      },
+      "error": {
+        "success": false,
+        "error": {
+          "code": "Error code",
+          "message": "Error message",
+          "details": "Additional error details"
+        }
+      }
+    }
+  },
+
+  "uiUxStandards": {
+    "designSystem": {
+      "uiComponents": "Vuetify 3.x",
+      "layoutStyling": "TailwindCSS 3.x",
+      "charts": "ECharts 5.x",
+      "dataGrid": "AG Grid 31.x"
+    },
+    "designTokens": {
+      "colors": {
+        "primary": "#FF7A00",
+        "secondary": "#2C3E50",
+        "success": "#4CAF50",
+        "warning": "#FFC107",
+        "error": "#F44336",
+        "info": "#2196F3"
+      },
+      "spacing": {
+        "xs": "4px",
+        "sm": "8px",
+        "md": "16px",
+        "lg": "24px",
+        "xl": "32px"
+      },
+      "typography": {
+        "fontFamily": "Pretendard, sans-serif",
+        "fontSize": {
+          "sm": "12px",
+          "md": "14px",
+          "lg": "16px",
+          "xl": "20px"
+        }
+      },
+      "borderRadius": {
+        "sm": "4px",
+        "md": "8px",
+        "lg": "12px"
+      }
+    },
+    "responsive": {
+      "breakpoints": {
+        "sm": 600,
+        "md": 960,
+        "lg": 1280,
+        "xl": 1920
+      },
+      "defaultResolution": "1920×1080",
+      "mobilePriority": "low"
+    }
+  },
+
+  "validation": {
+    "required": {
+      "rule": "!!value || 'This field is required'",
+      "usage": "All required input fields"
+    },
+    "email": {
+      "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+      "rule": "pattern.test(value) || 'Invalid email format'"
+    },
+    "minLength": {
+      "rule": "value.length >= min || `Minimum ${min} characters required`"
+    }
+  },
+
+  "environmentVariables": {
+    "development": {
+      "VITE_API_BASE_URL": "http://localhost:8080",
+      "VITE_APP_TITLE": "ESG IssuePool (Dev)"
+    },
+    "production": {
+      "VITE_API_BASE_URL": "https://api.esgskala.com",
+      "VITE_APP_TITLE": "ESG IssuePool"
+    },
+    "usage": "import.meta.env.VITE_API_BASE_URL",
+    "rules": [
+      "All environment variables must start with VITE_",
+      "Never commit .env files with secrets",
+      "Use .env.example as template"
+    ]
+  },
+
+  "testing": {
+    "framework": "Vitest",
+    "coverage": {
+      "minimum": 80,
+      "target": "statements, branches, functions, lines"
+    },
+    "testTypes": {
+      "unit": "Component and function unit tests",
+      "integration": "Store and API integration tests",
+      "e2e": "End-to-end user flow tests"
+    },
+    "rules": [
+      "All new components must have unit tests",
+      "All store actions must have tests",
+      "Test files must be named *.test.ts or *.spec.ts",
+      "Mock external dependencies"
+    ]
+  },
+
+  "gitWorkflow": {
+    "strategy": "GitHub Flow",
+    "branches": {
+      "main": "Production deployment branch",
+      "feature/*": "Feature development branches",
+      "fix/*": "Bug fix branches"
+    },
+    "commitMessage": {
+      "format": "<type>: <subject>",
+      "types": {
+        "feat": "New feature",
+        "fix": "Bug fix",
+        "docs": "Documentation update",
+        "style": "Code formatting (no logic change)",
+        "refactor": "Code refactoring",
+        "test": "Test code addition",
+        "chore": "Build, package manager updates"
+      },
+      "examples": [
+        "feat: add automatic issue pool generation",
+        "fix: resolve chart data loading error",
+        "docs: add README installation guide"
+      ],
+      "rules": [
+        "Subject line max 50 characters",
+        "Use imperative mood (add, not added)",
+        "No period at end of subject"
+      ]
+    }
+  },
+
+  "linting": {
+    "eslint": {
+      "extends": [
+        "plugin:vue/vue3-recommended",
+        "@vue/typescript/recommended",
+        "prettier"
+      ],
+      "rules": {
+        "vue/multi-word-component-names": "error",
+        "vue/no-unused-vars": "warn",
+        "@typescript-eslint/no-explicit-any": "warn",
+        "no-console": "warn in production"
+      }
+    },
+    "prettier": {
+      "semi": true,
+      "singleQuote": true,
+      "printWidth": 120,
+      "tabWidth": 2,
+      "trailingComma": "none",
+      "arrowParens": "always"
+    }
+  },
+
+  "aiPromptGuidelines": {
+    "componentCreation": {
+      "systemPrompt": "You are a Vue 3 frontend developer following SKALA ESG project standards.",
+      "taskFormat": "Create a new component: [ComponentName].vue",
+      "requirements": [
+        "Use <script setup> with TypeScript",
+        "Follow PascalCase naming",
+        "Define Props and Emit types",
+        "Use Vuetify for UI elements",
+        "Follow 2 spaces indentation",
+        "Add proper TypeScript types"
+      ],
+      "constraints": [
+        "No use of Options API",
+        "No direct API calls in component",
+        "Must be reusable and presentational"
+      ]
+    },
+    "codeRefactoring": {
+      "contextRequired": ["File path", "Current implementation description"],
+      "taskRequired": "Specific refactoring goal",
+      "requirementsRequired": [
+        "Target pattern (e.g., Composition API)",
+        "Functionality to preserve",
+        "Project conventions to follow"
+      ]
+    }
+  },
+
+  "prohibited": [
+    "Options API usage",
+    "Direct API calls from components",
+    "Hardcoded URLs or configuration values",
+    "Excessive use of 'any' type",
+    "Meaningless variable names (data, temp, test)",
+    "Single-word component names",
+    "Tabs for indentation",
+    "Missing TypeScript types for Props/Emit"
+  ],
+
+  "mandatory": [
+    "TypeScript type annotations",
+    "Props and Emit type definitions",
+    "Error handling with try-catch",
+    "Loading state display for async operations",
+    "Reusable component design",
+    "Clear and descriptive variable/function names",
+    "ESLint and Prettier compliance",
+    "Unit tests for new components",
+    "Commit message convention adherence"
+  ],
+
+  "checklist": [
+    "No TypeScript errors",
+    "No ESLint errors",
+    "Props/Emit types defined",
+    "Component name: PascalCase + 2+ words",
+    "Correct file location (views vs components)",
+    "API calls only through Store",
+    "Error handling & Loading state implemented",
+    "Responsive design considered (if needed)",
+    "Comments added (complex logic only)",
+    "Git commit message rules followed",
+    "Unit tests written and passing"
+  ],
+
+  "references": {
+    "developmentStandard": "[SKIP]_100.개발표준 정의서_v1.0.docx.pdf",
+    "uiDefinition": "[07조]_400. 서비스_분석 설계서_413_UI정의서_v1.2.pptx.pptx",
+    "requirements": "[SKIP]_300. 요구사항정의서_v0.1.xlsx",
+    "figma": "https://www.figma.com/make/OEtzhysRKRi8DghdMd4Tzx/Receive-and-Build-Prompt"
+  },
+
+  "metadata": {
+    "version": "1.0",
+    "lastModified": "2025-11-18",
+    "author": "SKALA Team 7",
+    "status": "active"
+  }
+}
+,
+  
+  "esgProjectSpecific": {
+    "navigator": {
+      "modules": [
+        "① Standard Document Management",
+        "② Internal Analysis (Data Hub)",
+        "③ Benchmarking",
+        "④ Media Analysis",
+        "⑤ News Intelligence",
+        "⑥ Stakeholder Survey",
+        "⑦ Materiality Assessment",
+        "⑧ Report Generation",
+        "⑨ RAG Chatbot",
+        "⑩ Carbon Credit"
+      ],
+      "layout": "Left panel, fixed position"
+    },
+    
+    "constants": {
+      "MAX_TOPIC_COUNT": {
+        "value": 20,
+        "usage": "ESG_CONSTANTS.MAX_TOPIC_COUNT",
+        "description": "Maximum topics before stakeholder survey"
+      },
+      "MAX_CORE_ISSUE_COUNT": {
+        "value": 20,
+        "description": "Maximum core issues after assessment"
+      },
+      "SURVEY_MAX_SELECTION": {
+        "value": 5,
+        "description": "Maximum issues to select in survey"
+      }
+    },
+    
+    "stakeholderSurvey": {
+      "issueSelection": {
+        "min": 5,
+        "max": 5,
+        "component": "v-checkbox with max validation"
+      },
+      "scoreRating": {
+        "min": 1,
+        "max": 3,
+        "component": "v-rating :length=\"3\""
+      },
+      "validation": [
+        "selectedIssues.length === 5",
+        "All scores between 1-3",
+        "Cannot submit unless exactly 5 selected"
+      ]
+    },
+    
+    "doubleMaterialityMatrix": {
+      "xAxis": {
+        "label": "Financial Materiality",
+        "range": "0.0 - 10.0"
+      },
+      "yAxis": {
+        "label": "Impact Materiality",
+        "range": "0.0 - 10.0"
+      },
+      "chartLibrary": "ECharts",
+      "chartType": "scatter"
+    },
+    
+    "errorCodeSystem": {
+      "format": "ESG-<MODULE>-<TYPE>-<NUMBER>",
+      "enum": "ESGErrorCode",
+      "codes": {
+        "STD_VAL_001": "Standard document format error",
+        "INT_VAL_002": "Data Hub integration failed",
+        "SVY_VAL_001": "Must select exactly 5 issues",
+        "SVY_VAL_002": "Score must be 1-3",
+        "MAT_LIMIT_001": "20 Topic limit exceeded",
+        "RPT_AI_001": "AI draft generation failed",
+        "CHAT_RAG_001": "RAG context retrieval failed",
+        "CRB_PRED_001": "Carbon price prediction error"
+      },
+      "handler": "handleESGError(error: ApiError)"
+    },
+    
+    "dataHubIntegration": {
+      "indicator": {
+        "component": "v-chip",
+        "color": "success",
+        "icon": "mdi-database",
+        "text": "Data Hub"
+      },
+      "field": "dataHubLinked: boolean",
+      "display": "Show chip when topic.dataHubLinked === true"
+    },
+    
+    "carbonTradingSignals": {
+      "signals": ["BUY", "SELL", "HOLD"],
+      "colors": {
+        "BUY": "success (green)",
+        "SELL": "error (red)",
+        "HOLD": "grey"
+      },
+      "display": {
+        "signal": "v-chip with color",
+        "confidence": "Percentage (0-100%)",
+        "predictedPrice": "Number with currency",
+        "recommendation": "Text description"
+      }
+    },
+    
+    "yearOverYearComparison": {
+      "component": "Comparison chart (ECharts)",
+      "data": {
+        "current": "Current year value",
+        "previous": "Previous year value",
+        "change": "Percentage change"
+      },
+      "display": [
+        "Side-by-side bar chart",
+        "Change percentage with arrow (↑/↓)",
+        "Color: green for positive, red for negative"
+      ]
+    },
+    
+    "aiChatbotUI": {
+      "chatbot": {
+        "name": "ESG Chatbot",
+        "icon": "mdi-chat",
+        "purpose": "General ESG Q&A",
+        "canWriteReport": false,
+        "disclaimer": "For report writing, use Report Assistant"
+      },
+      "reportAssistant": {
+        "name": "Report Assistant",
+        "icon": "mdi-file-document-edit",
+        "purpose": "Report writing only",
+        "canWriteReport": true,
+        "disclaimer": "For general questions, use ESG Chatbot"
+      }
+    },
+    
+    "newsIntelligence": {
+      "retentionIndicator": {
+        "display": "Retention until: {date}",
+        "calculation": "collected_at + 2 years",
+        "warningColor": "When retention_until < 30 days, show warning"
+      }
+    }
+  },
+  
+  "esgUIComponents": {
+    "IssueCard": {
+      "props": [
+        "issue: Issue",
+        "showDataHubIndicator: boolean",
+        "showScores: boolean"
+      ],
+      "displays": [
+        "Title and description",
+        "Financial score (X-axis)",
+        "Impact score (Y-axis)",
+        "Data Hub chip if linked",
+        "Sources list"
+      ]
+    },
+    "SurveyForm": {
+      "props": ["issues: Issue[]"],
+      "validation": [
+        "Exactly 5 issues selected",
+        "All selected issues have 1-3 scores"
+      ],
+      "emit": ["submit"]
+    },
+    "MaterialityMatrix": {
+      "library": "ECharts",
+      "type": "scatter",
+      "axes": {
+        "x": "financial_score (0-10)",
+        "y": "impact_score (0-10)"
+      },
+      "points": "20 core issues"
+    },
+    "CarbonSignalCard": {
+      "props": ["signal: TradingSignal"],
+      "displays": [
+        "Signal chip (BUY/SELL/HOLD)",
+        "Confidence percentage",
+        "Price prediction",
+        "Recommendation text"
+      ]
+    }
+  },
+  
+  "esgChecklist": [
+    "ESG_CONSTANTS exported and used throughout app",
+    "20 Topic limit validation in issue pool generation",
+    "5 Issue selection constraint in survey form",
+    "1-3 score range validation with v-rating",
+    "ESGErrorCode enum defined",
+    "Error handler uses ESG error codes",
+    "Data Hub indicator chip component",
+    "Carbon signal color mapping (BUY=green, SELL=red, HOLD=grey)",
+    "Year-over-year comparison chart",
+    "Navigator with 10 ESG modules",
+    "ESG Chatbot and Report Assistant separated in UI",
+    "Double Materiality Matrix (scatter chart with X/Y axes)",
+    "News retention date display"
+  ]
+}

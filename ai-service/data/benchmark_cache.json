@@ -1,0 +1,2335 @@
+{
+  "3m": {
+    "기후변화 대응": {
+      "coverage": "Yes",
+      "response": "매칭: Climate change and GHG emissions (유사도 70%)",
+      "source_pages": [
+        9,
+        47,
+        48,
+        49,
+        50,
+        51,
+        53,
+        54
+      ]
+    },
+    "신재생에너지 확대 및 전력 효율화": {
+      "coverage": "Yes",
+      "response": "매칭: Energy usage and use of renewables (유사도 70%)",
+      "source_pages": [
+        9,
+        47,
+        48,
+        49,
+        50,
+        51,
+        53,
+        54
+      ]
+    },
+    "환경영향 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        50,
+        51,
+        52
+      ]
+    },
+    "생물다양성 보호": {
+      "coverage": "Yes",
+      "response": "매칭: Biodiversity and ecosystems (유사도 70%)",
+      "source_pages": [
+        9,
+        47,
+        48,
+        49,
+        50,
+        51,
+        53,
+        54
+      ]
+    },
+    "친환경 사업/기술 투자": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        50,
+        51,
+        52
+      ]
+    },
+    "인재양성 및 다양성": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        49,
+        52,
+        53
+      ]
+    },
+    "안전보건 관리": {
+      "coverage": "Yes",
+      "response": "매칭: Product innovation to solve climate, health, and safety challenges (유사도 70%)",
+      "source_pages": [
+        9,
+        47,
+        48,
+        49,
+        50,
+        51,
+        53,
+        54
+      ]
+    },
+    "인권경영 고도화": {
+      "coverage": "Yes",
+      "response": "매칭: Human rights and labor practices in the supply chain (유사도 70%)",
+      "source_pages": [
+        9,
+        47,
+        48,
+        49,
+        50,
+        51,
+        53,
+        54
+      ]
+    },
+    "책임있는 제품/서비스 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        49,
+        53,
+        55
+      ]
+    },
+    "정보보안 및 프라이버시": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        49,
+        53,
+        55
+      ]
+    },
+    "공급망 ESG 관리": {
+      "coverage": "Yes",
+      "response": "매칭: Responsible sourcing and supplier management (유사도 70%)",
+      "source_pages": [
+        9,
+        47,
+        48,
+        49,
+        50,
+        51,
+        53,
+        54
+      ]
+    },
+    "지역사회 공헌": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Communities (유사도 70%)",
+      "source_pages": [
+        52,
+        53,
+        54
+      ]
+    },
+    "윤리 및 컴플라이언스": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Commitment to anti-corruption (유사도 70%)",
+      "source_pages": [
+        49,
+        53,
+        55
+      ]
+    },
+    "투명한 이사회 경영": {
+      "coverage": "Partially",
+      "response": "키워드 발견: board of directors, corporate governance",
+      "source_pages": [
+        49,
+        52,
+        53
+      ]
+    },
+    "주주가치 제고": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        49,
+        52,
+        47
+      ]
+    },
+    "리스크 관리": {
+      "coverage": "Partially",
+      "response": "키워드 발견: ERM, risk management, enterprise risk",
+      "source_pages": [
+        52,
+        55,
+        47
+      ]
+    },
+    "포트폴리오 ESG 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        49,
+        50,
+        43
+      ]
+    },
+    "ESG 공시 의무화 대응": {
+      "coverage": "No",
+      "response": "분석 필요",
+      "source_pages": []
+    }
+  },
+  "삼성전자": {
+    "기후변화 대응": {
+      "coverage": "Yes",
+      "response": "매칭: 기후변화 (유사도 90%)",
+      "source_pages": [
+        2,
+        7,
+        9,
+        43,
+        75,
+        80,
+        84,
+        85,
+        86
+      ]
+    },
+    "신재생에너지 확대 및 전력 효율화": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 기후변화, 에너지 관리, 재생에너지 전환 (유사도 80%)",
+      "source_pages": [
+        80,
+        85,
+        14
+      ]
+    },
+    "환경영향 관리": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: Circular Economy, Pollution, Water (유사도 70%)",
+      "source_pages": [
+        80,
+        20,
+        29
+      ]
+    },
+    "생물다양성 보호": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 생물다양성 관리 생물다양성 증진 활동 (유사도 80%)",
+      "source_pages": [
+        29,
+        31
+      ]
+    },
+    "친환경 사업/기술 투자": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        80,
+        85
+      ]
+    },
+    "인재양성 및 다양성": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 임직원, 인재양성, 교육, 역량 개발 (유사도 80%)",
+      "source_pages": [
+        65,
+        81,
+        66
+      ]
+    },
+    "안전보건 관리": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: Safety & Health, 임직원 건강 관리, 협력회사 안전보건 (유사도 80%)",
+      "source_pages": [
+        81,
+        43
+      ]
+    },
+    "인권경영 고도화": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 임직원, 공급망, 인권 실사, 강제노동 방지, 차별 금지 (유사도 80%)",
+      "source_pages": [
+        35,
+        36
+      ]
+    },
+    "책임있는 제품/서비스 관리": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 고객 서비스 서비스 품질 향상 고객 커뮤니케이션 (유사도 80%)",
+      "source_pages": [
+        8,
+        57,
+        55
+      ]
+    },
+    "정보보안 및 프라이버시": {
+      "coverage": "Yes",
+      "response": "매칭: 개인정보보호와 보안 (유사도 70%)",
+      "source_pages": [
+        2,
+        7,
+        9,
+        43,
+        75,
+        80,
+        84,
+        85,
+        86
+      ]
+    },
+    "공급망 ESG 관리": {
+      "coverage": "Yes",
+      "response": "매칭: 공급망 (유사도 90%)",
+      "source_pages": [
+        2,
+        7,
+        9,
+        43,
+        75,
+        80,
+        84,
+        85,
+        86
+      ]
+    },
+    "지역사회 공헌": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 사회공헌, 지역사회, 기부, 봉사, CSR (유사도 80%)",
+      "source_pages": [
+        80,
+        81,
+        9
+      ]
+    },
+    "윤리 및 컴플라이언스": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 준법과 윤리경영, 컴플라이언스, 반부패 (유사도 80%)",
+      "source_pages": [
+        80,
+        60
+      ]
+    },
+    "투명한 이사회 경영": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 기업 지배구조, 지속가능경영위원회 (유사도 70%)",
+      "source_pages": [
+        80,
+        59,
+        6
+      ]
+    },
+    "주주가치 제고": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 기업 지배구조, 이해관계자 소통 (유사도 70%)",
+      "source_pages": [
+        80,
+        2,
+        62
+      ]
+    },
+    "리스크 관리": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 리스크 관리, 사업 연속성 관리체계 (유사도 80%)",
+      "source_pages": [
+        83,
+        12
+      ]
+    },
+    "포트폴리오 ESG 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        80,
+        7
+      ]
+    },
+    "ESG 공시 의무화 대응": {
+      "coverage": "No",
+      "response": "분석 필요",
+      "source_pages": []
+    }
+  },
+  "삼성SDS": {
+    "기후변화 대응": {
+      "coverage": "Yes",
+      "response": "매칭: 온실가스 배출량 관리 및 감축 (유사도 70%)",
+      "source_pages": [
+        2,
+        19,
+        147,
+        148,
+        150,
+        152,
+        156,
+        157
+      ]
+    },
+    "신재생에너지 확대 및 전력 효율화": {
+      "coverage": "Yes",
+      "response": "매칭: 재생에너지 사용 확대 (유사도 70%)",
+      "source_pages": [
+        2,
+        19,
+        147,
+        148,
+        150,
+        152,
+        156,
+        157
+      ]
+    },
+    "환경영향 관리": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 환경경영, 온실가스 관리, 폐기물 관리 (유사도 80%)",
+      "source_pages": [
+        59,
+        60,
+        151
+      ]
+    },
+    "생물다양성 보호": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 생물다양성 관리 (유사도 80%)",
+      "source_pages": [
+        57,
+        59,
+        60
+      ]
+    },
+    "친환경 사업/기술 투자": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 환경경영 전략, 기후변화 대응, ESG 전략 과제 (유사도 70%)",
+      "source_pages": [
+        148,
+        60,
+        151
+      ]
+    },
+    "인재양성 및 다양성": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 임직원, 역량 개발, 인적자본 ROI (유사도 80%)",
+      "source_pages": [
+        136,
+        137,
+        135
+      ]
+    },
+    "안전보건 관리": {
+      "coverage": "Yes",
+      "response": "매칭: 임직원 안전보건 관리 (유사도 90%)",
+      "source_pages": [
+        2,
+        19,
+        147,
+        148,
+        150,
+        152,
+        156,
+        157
+      ]
+    },
+    "인권경영 고도화": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 인권경영, DEI(다양성, 형평성, 포용성) (유사도 80%)",
+      "source_pages": [
+        64,
+        66,
+        103
+      ]
+    },
+    "책임있는 제품/서비스 관리": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 고객, 품질관리 체계, 서비스 중단, 기술 중단 (유사도 80%)",
+      "source_pages": [
+        148,
+        140,
+        97
+      ]
+    },
+    "정보보안 및 프라이버시": {
+      "coverage": "Yes",
+      "response": "매칭: 정보보안 (유사도 90%)",
+      "source_pages": [
+        2,
+        19,
+        147,
+        148,
+        150,
+        152,
+        156,
+        157
+      ]
+    },
+    "공급망 ESG 관리": {
+      "coverage": "Yes",
+      "response": "매칭: 공급망 ESG 관리 (유사도 100%)",
+      "source_pages": [
+        2,
+        19,
+        147,
+        148,
+        150,
+        152,
+        156,
+        157
+      ]
+    },
+    "지역사회 공헌": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 지역사회, 사회공헌 성과, 삼성 공동 사회공헌 프로그램 (유사도 80%)",
+      "source_pages": [
+        152,
+        106,
+        27
+      ]
+    },
+    "윤리 및 컴플라이언스": {
+      "coverage": "Yes",
+      "response": "매칭: 불공정행위 및 부정부패 방지 (유사도 70%)",
+      "source_pages": [
+        2,
+        19,
+        147,
+        148,
+        150,
+        152,
+        156,
+        157
+      ]
+    },
+    "투명한 이사회 경영": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 기업 지배구조, 이사회, ESG 위원회 (유사도 80%)",
+      "source_pages": [
+        41,
+        106,
+        109
+      ]
+    },
+    "주주가치 제고": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 주주친화경영, 주주 및 투자자와 소통, 배당에 관한 사항 (유사도 80%)",
+      "source_pages": [
+        3,
+        148,
+        111
+      ]
+    },
+    "리스크 관리": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 리스크 관리, 기후변화 대응, 정보보호 (유사도 80%)",
+      "source_pages": [
+        112,
+        113,
+        150
+      ]
+    },
+    "포트폴리오 ESG 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        153,
+        149,
+        150
+      ]
+    },
+    "ESG 공시 의무화 대응": {
+      "coverage": "No",
+      "response": "분석 필요",
+      "source_pages": []
+    }
+  },
+  "Brookfield Asset management": {
+    "기후변화 대응": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        96,
+        97,
+        98
+      ]
+    },
+    "신재생에너지 확대 및 전력 효율화": {
+      "coverage": "Partially",
+      "response": "키워드 발견: renewable, REC",
+      "source_pages": [
+        98,
+        30,
+        95
+      ]
+    },
+    "환경영향 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        96,
+        98,
+        95
+      ]
+    },
+    "생물다양성 보호": {
+      "coverage": "Yes",
+      "response": "매칭: Biodiversity (유사도 70%)",
+      "source_pages": [
+        84,
+        85,
+        93,
+        95,
+        96,
+        98,
+        101
+      ]
+    },
+    "친환경 사업/기술 투자": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        98,
+        99,
+        95
+      ]
+    },
+    "인재양성 및 다양성": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        66,
+        99,
+        100
+      ]
+    },
+    "안전보건 관리": {
+      "coverage": "Yes",
+      "response": "매칭: Occupational Health and Safety (유사도 70%)",
+      "source_pages": [
+        84,
+        85,
+        93,
+        95,
+        96,
+        98,
+        101
+      ]
+    },
+    "인권경영 고도화": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        99,
+        100,
+        94
+      ]
+    },
+    "책임있는 제품/서비스 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        99,
+        101
+      ]
+    },
+    "정보보안 및 프라이버시": {
+      "coverage": "Partially",
+      "response": "키워드 발견: GDPR, information security, cybersecurity",
+      "source_pages": [
+        24,
+        99
+      ]
+    },
+    "공급망 ESG 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        98,
+        84,
+        93
+      ]
+    },
+    "지역사회 공헌": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Local Community Engagement (유사도 70%)",
+      "source_pages": [
+        66,
+        101,
+        78
+      ]
+    },
+    "윤리 및 컴플라이언스": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Anti-Bribery and Corruption Program (유사도 70%)",
+      "source_pages": [
+        99,
+        101,
+        94
+      ]
+    },
+    "투명한 이사회 경영": {
+      "coverage": "Partially",
+      "response": "키워드 발견: board of directors, corporate governance",
+      "source_pages": [
+        100,
+        99,
+        84
+      ]
+    },
+    "주주가치 제고": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        98,
+        84,
+        95
+      ]
+    },
+    "리스크 관리": {
+      "coverage": "Partially",
+      "response": "키워드 발견: ERM, risk management",
+      "source_pages": [
+        99,
+        102
+      ]
+    },
+    "포트폴리오 ESG 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        88,
+        84,
+        101
+      ]
+    },
+    "ESG 공시 의무화 대응": {
+      "coverage": "No",
+      "response": "분석 필요",
+      "source_pages": []
+    }
+  },
+  "Carlyle": {
+    "기후변화 대응": {
+      "coverage": "Yes",
+      "response": "매칭: Direct (Scope 1) GHG emissions (유사도 70%)",
+      "source_pages": [
+        24,
+        45,
+        50,
+        52,
+        54,
+        59,
+        65
+      ]
+    },
+    "신재생에너지 확대 및 전력 효율화": {
+      "coverage": "Yes",
+      "response": "매칭: Direct economic value generated and distributed (유사도 70%)",
+      "source_pages": [
+        24,
+        45,
+        50,
+        52,
+        54,
+        59,
+        65
+      ]
+    },
+    "환경영향 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        57,
+        58,
+        59
+      ]
+    },
+    "생물다양성 보호": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        59,
+        52,
+        47
+      ]
+    },
+    "친환경 사업/기술 투자": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        58,
+        59,
+        54
+      ]
+    },
+    "인재양성 및 다양성": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        51,
+        52,
+        46
+      ]
+    },
+    "안전보건 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        64,
+        59,
+        52
+      ]
+    },
+    "인권경영 고도화": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        64,
+        51,
+        46
+      ]
+    },
+    "책임있는 제품/서비스 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        21,
+        52,
+        53
+      ]
+    },
+    "정보보안 및 프라이버시": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        64,
+        52,
+        53
+      ]
+    },
+    "공급망 ESG 관리": {
+      "coverage": "Partially",
+      "response": "키워드 발견: supply chain, supplier, vendor",
+      "source_pages": [
+        59,
+        53,
+        46
+      ]
+    },
+    "지역사회 공헌": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: GRI 413 Local Communities 413-1 (유사도 70%)",
+      "source_pages": [
+        64,
+        51,
+        52
+      ]
+    },
+    "윤리 및 컴플라이언스": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Anti-corruption policies (유사도 70%)",
+      "source_pages": [
+        64,
+        59,
+        52
+      ]
+    },
+    "투명한 이사회 경영": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        53,
+        47
+      ]
+    },
+    "주주가치 제고": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        59,
+        52,
+        54
+      ]
+    },
+    "리스크 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        58,
+        59,
+        52
+      ]
+    },
+    "포트폴리오 ESG 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        67,
+        47
+      ]
+    },
+    "ESG 공시 의무화 대응": {
+      "coverage": "No",
+      "response": "분석 필요",
+      "source_pages": []
+    }
+  },
+  "Johnson": {
+    "기후변화 대응": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Responding to Climate Change (유사도 70%)",
+      "source_pages": [
+        48,
+        50,
+        27
+      ]
+    },
+    "신재생에너지 확대 및 전력 효율화": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        48,
+        49,
+        50
+      ]
+    },
+    "환경영향 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        48,
+        49,
+        43
+      ]
+    },
+    "생물다양성 보호": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Safeguarding Human Health and Biodiversity (유사도 70%)",
+      "source_pages": [
+        49,
+        50,
+        51
+      ]
+    },
+    "친환경 사업/기술 투자": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        48,
+        49,
+        50
+      ]
+    },
+    "인재양성 및 다양성": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Training and Development (유사도 70%)",
+      "source_pages": [
+        50,
+        51,
+        53
+      ]
+    },
+    "안전보건 관리": {
+      "coverage": "Yes",
+      "response": "매칭: Occupational safety and health (유사도 70%)",
+      "source_pages": [
+        7,
+        9,
+        16,
+        17,
+        18,
+        48,
+        49,
+        50,
+        52,
+        53
+      ]
+    },
+    "인권경영 고도화": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Protection of Employee Rights (유사도 70%)",
+      "source_pages": [
+        51,
+        29,
+        39
+      ]
+    },
+    "책임있는 제품/서비스 관리": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Reliable Services (유사도 70%)",
+      "source_pages": [
+        12,
+        52,
+        53
+      ]
+    },
+    "정보보안 및 프라이버시": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        53,
+        39
+      ]
+    },
+    "공급망 ESG 관리": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Supply Chain Management (유사도 70%)",
+      "source_pages": [
+        49,
+        52,
+        53
+      ]
+    },
+    "지역사회 공헌": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Community Contribution (유사도 70%)",
+      "source_pages": [
+        50,
+        51,
+        53
+      ]
+    },
+    "윤리 및 컴플라이언스": {
+      "coverage": "Yes",
+      "response": "매칭: Business ethics and anti-corruption (유사도 70%)",
+      "source_pages": [
+        7,
+        9,
+        16,
+        17,
+        18,
+        48,
+        49,
+        50,
+        52,
+        53
+      ]
+    },
+    "투명한 이사회 경영": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        49,
+        50,
+        53
+      ]
+    },
+    "주주가치 제고": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        8,
+        2,
+        7
+      ]
+    },
+    "리스크 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        50,
+        52,
+        53
+      ]
+    },
+    "포트폴리오 ESG 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        48,
+        49,
+        53
+      ]
+    },
+    "ESG 공시 의무화 대응": {
+      "coverage": "No",
+      "response": "분석 필요",
+      "source_pages": []
+    }
+  },
+  "LG": {
+    "기후변화 대응": {
+      "coverage": "Yes",
+      "response": "매칭: 기후변화 대응 (유사도 90%)",
+      "source_pages": [
+        3,
+        11,
+        27,
+        30,
+        31,
+        36,
+        42,
+        43
+      ]
+    },
+    "신재생에너지 확대 및 전력 효율화": {
+      "coverage": "Yes",
+      "response": "매칭: 에너지 (유사도 90%)",
+      "source_pages": [
+        3,
+        11,
+        27,
+        30,
+        31,
+        36,
+        42,
+        43
+      ]
+    },
+    "환경영향 관리": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: LG ESG Reporting 2024 전략, 위험 관리, 지표 및 목표 (유사도 70%)",
+      "source_pages": [
+        37,
+        14
+      ]
+    },
+    "생물다양성 보호": {
+      "coverage": "Yes",
+      "response": "매칭: 생물다양성 손실 (유사도 70%)",
+      "source_pages": [
+        3,
+        11,
+        27,
+        30,
+        31,
+        36,
+        42,
+        43
+      ]
+    },
+    "친환경 사업/기술 투자": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 전략 5. 기후 회복력 ③ 전략 실행을 위한 투자 및 처분 계획 (유사도 70%)",
+      "source_pages": [
+        10,
+        14
+      ]
+    },
+    "인재양성 및 다양성": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 인적자원, 인재육성 프로그램 운영, 역량개발 (유사도 80%)",
+      "source_pages": [
+        40,
+        38,
+        31
+      ]
+    },
+    "안전보건 관리": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: III.안전보건 (유사도 80%)",
+      "source_pages": [
+        25,
+        29
+      ]
+    },
+    "인권경영 고도화": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        43,
+        20,
+        22
+      ]
+    },
+    "책임있는 제품/서비스 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        3,
+        42,
+        43
+      ]
+    },
+    "정보보안 및 프라이버시": {
+      "coverage": "Yes",
+      "response": "매칭: 정보보호 (유사도 90%)",
+      "source_pages": [
+        3,
+        11,
+        27,
+        30,
+        31,
+        36,
+        42,
+        43
+      ]
+    },
+    "공급망 ESG 관리": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 협력회사 ESG 위험 관리, 지속가능한 공급망 위험 관리 (유사도 80%)",
+      "source_pages": [
+        41,
+        42,
+        6
+      ]
+    },
+    "지역사회 공헌": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 지역사회 투자, 사회공헌금액, 사회공헌 프로그램 (유사도 80%)",
+      "source_pages": [
+        41,
+        42,
+        38
+      ]
+    },
+    "윤리 및 컴플라이언스": {
+      "coverage": "Yes",
+      "response": "매칭: 컴플라이언스 리스크 (유사도 70%)",
+      "source_pages": [
+        3,
+        11,
+        27,
+        30,
+        31,
+        36,
+        42,
+        43
+      ]
+    },
+    "투명한 이사회 경영": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 지배구조, 이사회 운영, ESG위원회 운영 현황 (유사도 80%)",
+      "source_pages": [
+        32,
+        33,
+        34
+      ]
+    },
+    "주주가치 제고": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        3,
+        43,
+        31
+      ]
+    },
+    "리스크 관리": {
+      "coverage": "Yes",
+      "response": "매칭: 리스크 관리 (유사도 90%)",
+      "source_pages": [
+        3,
+        11,
+        27,
+        30,
+        31,
+        36,
+        42,
+        43
+      ]
+    },
+    "포트폴리오 ESG 관리": {
+      "coverage": "Partially",
+      "response": "키워드 발견: 투자, 계열사",
+      "source_pages": [
+        42,
+        2,
+        6
+      ]
+    },
+    "ESG 공시 의무화 대응": {
+      "coverage": "No",
+      "response": "분석 필요",
+      "source_pages": []
+    }
+  },
+  "LGCNS": {
+    "기후변화 대응": {
+      "coverage": "Yes",
+      "response": "매칭: 기후변화 대응 (유사도 90%)",
+      "source_pages": [
+        11,
+        12,
+        96,
+        110,
+        111,
+        113,
+        115,
+        116
+      ]
+    },
+    "신재생에너지 확대 및 전력 효율화": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 통합발전소 솔루션, Enerdict (유사도 70%)",
+      "source_pages": [
+        48,
+        113,
+        110
+      ]
+    },
+    "환경영향 관리": {
+      "coverage": "Partially",
+      "response": "키워드 발견: 대기, 폐기물, 배출",
+      "source_pages": [
+        113,
+        44,
+        110
+      ]
+    },
+    "생물다양성 보호": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        113,
+        115,
+        111
+      ]
+    },
+    "친환경 사업/기술 투자": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 환경경영, 데이터센터 친환경 IT 시스템 운영 (유사도 70%)",
+      "source_pages": [
+        113,
+        110,
+        111
+      ]
+    },
+    "인재양성 및 다양성": {
+      "coverage": "Yes",
+      "response": "매칭: 인적자본 관리 (유사도 90%)",
+      "source_pages": [
+        11,
+        12,
+        96,
+        110,
+        111,
+        113,
+        115,
+        116
+      ]
+    },
+    "안전보건 관리": {
+      "coverage": "Yes",
+      "response": "매칭: 안전보건 관리 (유사도 100%)",
+      "source_pages": [
+        11,
+        12,
+        96,
+        110,
+        111,
+        113,
+        115,
+        116
+      ]
+    },
+    "인권경영 고도화": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 인권경영, 인권정책, 다양성 & 포용성 제도 (유사도 80%)",
+      "source_pages": [
+        65,
+        107,
+        111
+      ]
+    },
+    "책임있는 제품/서비스 관리": {
+      "coverage": "Yes",
+      "response": "매칭: 고객 만족 (유사도 70%)",
+      "source_pages": [
+        11,
+        12,
+        96,
+        110,
+        111,
+        113,
+        115,
+        116
+      ]
+    },
+    "정보보안 및 프라이버시": {
+      "coverage": "Yes",
+      "response": "매칭: 정보보안 및 개인정보 보호 (유사도 70%)",
+      "source_pages": [
+        11,
+        12,
+        96,
+        110,
+        111,
+        113,
+        115,
+        116
+      ]
+    },
+    "공급망 ESG 관리": {
+      "coverage": "Yes",
+      "response": "매칭: 협력회사 동반성장 (유사도 70%)",
+      "source_pages": [
+        11,
+        12,
+        96,
+        110,
+        111,
+        113,
+        115,
+        116
+      ]
+    },
+    "지역사회 공헌": {
+      "coverage": "Yes",
+      "response": "매칭: 지역사회 기여 및 사회공헌 (유사도 70%)",
+      "source_pages": [
+        11,
+        12,
+        96,
+        110,
+        111,
+        113,
+        115,
+        116
+      ]
+    },
+    "윤리 및 컴플라이언스": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: Compliance, 정도경영, 이해관계자 소통 (유사도 70%)",
+      "source_pages": [
+        110,
+        100,
+        94
+      ]
+    },
+    "투명한 이사회 경영": {
+      "coverage": "Yes",
+      "response": "매칭: 투명하고 건전한 지배구조 (유사도 70%)",
+      "source_pages": [
+        11,
+        12,
+        96,
+        110,
+        111,
+        113,
+        115,
+        116
+      ]
+    },
+    "주주가치 제고": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 지배구조, 재무성과, 이해관계자 소통 (유사도 70%)",
+      "source_pages": [
+        91,
+        115,
+        109
+      ]
+    },
+    "리스크 관리": {
+      "coverage": "Yes",
+      "response": "매칭: 리스크 및 위기 관리 (유사도 70%)",
+      "source_pages": [
+        11,
+        12,
+        96,
+        110,
+        111,
+        113,
+        115,
+        116
+      ]
+    },
+    "포트폴리오 ESG 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        113,
+        100,
+        111
+      ]
+    },
+    "ESG 공시 의무화 대응": {
+      "coverage": "No",
+      "response": "분석 필요",
+      "source_pages": []
+    }
+  },
+  "SAP": {
+    "기후변화 대응": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Climate Change (유사도 70%)",
+      "source_pages": [
+        153,
+        133,
+        159
+      ]
+    },
+    "신재생에너지 확대 및 전력 효율화": {
+      "coverage": "Yes",
+      "response": "매칭: Circular economy (유사도 70%)",
+      "source_pages": [
+        117,
+        118,
+        128,
+        130,
+        131,
+        132,
+        137,
+        138,
+        139
+      ]
+    },
+    "환경영향 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        147,
+        148,
+        133
+      ]
+    },
+    "생물다양성 보호": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        225,
+        226,
+        33
+      ]
+    },
+    "친환경 사업/기술 투자": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        145,
+        147,
+        148
+      ]
+    },
+    "인재양성 및 다양성": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        226,
+        139,
+        174
+      ]
+    },
+    "안전보건 관리": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: SAP Global Health & Safety Policy (유사도 70%)",
+      "source_pages": [
+        225,
+        226
+      ]
+    },
+    "인권경영 고도화": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Human Rights (유사도 70%)",
+      "source_pages": [
+        226,
+        183
+      ]
+    },
+    "책임있는 제품/서비스 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        105,
+        209,
+        135
+      ]
+    },
+    "정보보안 및 프라이버시": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Security, Cloud Compliance, and Data Protection and Privacy (유사도 70%)",
+      "source_pages": [
+        212,
+        206
+      ]
+    },
+    "공급망 ESG 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        120,
+        121,
+        233
+      ]
+    },
+    "지역사회 공헌": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        184,
+        136,
+        181
+      ]
+    },
+    "윤리 및 컴플라이언스": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Business Conduct (유사도 70%)",
+      "source_pages": [
+        145,
+        148,
+        150
+      ]
+    },
+    "투명한 이사회 경영": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        121,
+        44,
+        222
+      ]
+    },
+    "주주가치 제고": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        233,
+        226,
+        133
+      ]
+    },
+    "리스크 관리": {
+      "coverage": "Partially",
+      "response": "키워드 발견: ERM, risk management",
+      "source_pages": [
+        96,
+        233
+      ]
+    },
+    "포트폴리오 ESG 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        233,
+        147,
+        121
+      ]
+    },
+    "ESG 공시 의무화 대응": {
+      "coverage": "No",
+      "response": "분석 필요",
+      "source_pages": []
+    }
+  },
+  "ServiceNOW": {
+    "기후변화 대응": {
+      "coverage": "Partially",
+      "response": "키워드 발견: Net Zero, GHG",
+      "source_pages": [
+        66,
+        86,
+        30
+      ]
+    },
+    "신재생에너지 확대 및 전력 효율화": {
+      "coverage": "Partially",
+      "response": "키워드 발견: renewable, REC",
+      "source_pages": [
+        66,
+        77,
+        86
+      ]
+    },
+    "환경영향 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        28,
+        86
+      ]
+    },
+    "생물다양성 보호": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        1,
+        54,
+        86
+      ]
+    },
+    "친환경 사업/기술 투자": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        78,
+        77,
+        86
+      ]
+    },
+    "인재양성 및 다양성": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        75,
+        68,
+        70
+      ]
+    },
+    "안전보건 관리": {
+      "coverage": "Yes",
+      "response": "매칭: Workplace health and safety (유사도 70%)",
+      "source_pages": [
+        4,
+        8,
+        30,
+        55,
+        61,
+        62,
+        75,
+        77,
+        86
+      ]
+    },
+    "인권경영 고도화": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        83,
+        76,
+        70
+      ]
+    },
+    "책임있는 제품/서비스 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        83,
+        70
+      ]
+    },
+    "정보보안 및 프라이버시": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Security and data privacy (유사도 70%)",
+      "source_pages": [
+        64,
+        83,
+        70
+      ]
+    },
+    "공급망 ESG 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        76,
+        77,
+        71
+      ]
+    },
+    "지역사회 공헌": {
+      "coverage": "Yes",
+      "response": "매칭: Community engagement (유사도 70%)",
+      "source_pages": [
+        4,
+        8,
+        30,
+        55,
+        61,
+        62,
+        75,
+        77,
+        86
+      ]
+    },
+    "윤리 및 컴플라이언스": {
+      "coverage": "Yes",
+      "response": "매칭: Corporate governance and business ethics (유사도 70%)",
+      "source_pages": [
+        4,
+        8,
+        30,
+        55,
+        61,
+        62,
+        75,
+        77,
+        86
+      ]
+    },
+    "투명한 이사회 경영": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        75,
+        76,
+        71
+      ]
+    },
+    "주주가치 제고": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        1,
+        77,
+        71
+      ]
+    },
+    "리스크 관리": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Risk management (유사도 70%)",
+      "source_pages": [
+        54,
+        70,
+        86
+      ]
+    },
+    "포트폴리오 ESG 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        8,
+        77,
+        71
+      ]
+    },
+    "ESG 공시 의무화 대응": {
+      "coverage": "No",
+      "response": "분석 필요",
+      "source_pages": []
+    }
+  },
+  "SK": {
+    "기후변화 대응": {
+      "coverage": "Yes",
+      "response": "매칭: 기후변화 대응(완화/적응) (유사도 100%)",
+      "source_pages": [
+        12,
+        15,
+        16,
+        17,
+        21,
+        24,
+        62,
+        149,
+        182,
+        190
+      ]
+    },
+    "신재생에너지 확대 및 전력 효율화": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 기후변화 대응(TCFD) 청정기술/사업 투자 환경영향 관리 (유사도 70%)",
+      "source_pages": [
+        170,
+        155,
+        62
+      ]
+    },
+    "환경영향 관리": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 환경영향 관리 (유사도 70%)",
+      "source_pages": [
+        25,
+        62,
+        55
+      ]
+    },
+    "생물다양성 보호": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 생물다양성 관리, 생물다양성 보호 정책 (유사도 90%)",
+      "source_pages": [
+        190,
+        61,
+        62
+      ]
+    },
+    "친환경 사업/기술 투자": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 청정기술/사업 투자 (유사도 80%)",
+      "source_pages": [
+        25,
+        62,
+        49
+      ]
+    },
+    "인재양성 및 다양성": {
+      "coverage": "Yes",
+      "response": "매칭: 인재양성 및 인적자본 관리 (유사도 100%)",
+      "source_pages": [
+        12,
+        15,
+        16,
+        17,
+        21,
+        24,
+        62,
+        149,
+        182,
+        190
+      ]
+    },
+    "안전보건 관리": {
+      "coverage": "Yes",
+      "response": "매칭: 안전보건 관리 (유사도 100%)",
+      "source_pages": [
+        12,
+        15,
+        16,
+        17,
+        21,
+        24,
+        62,
+        149,
+        182,
+        190
+      ]
+    },
+    "인권경영 고도화": {
+      "coverage": "Yes",
+      "response": "매칭: 인권존중 및 보호 (유사도 100%)",
+      "source_pages": [
+        12,
+        15,
+        16,
+        17,
+        21,
+        24,
+        62,
+        149,
+        182,
+        190
+      ]
+    },
+    "책임있는 제품/서비스 관리": {
+      "coverage": "Yes",
+      "response": "매칭: 서비스 품질 및 안정성 (유사도 100%)",
+      "source_pages": [
+        12,
+        15,
+        16,
+        17,
+        21,
+        24,
+        62,
+        149,
+        182,
+        190
+      ]
+    },
+    "정보보안 및 프라이버시": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 정보 보안, 개인정보보호, 데이터 보호, ISMS (유사도 80%)",
+      "source_pages": [
+        106,
+        108,
+        110
+      ]
+    },
+    "공급망 ESG 관리": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 공급망 관리, 협력사 ESG 개선 지원 (유사도 80%)",
+      "source_pages": [
+        96,
+        98,
+        95
+      ]
+    },
+    "지역사회 공헌": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 사회공헌, 지역사회와 함께하는 행복한 상생 (유사도 80%)",
+      "source_pages": [
+        120,
+        190,
+        14
+      ]
+    },
+    "윤리 및 컴플라이언스": {
+      "coverage": "Yes",
+      "response": "매칭: 윤리경영 및 반부패 (유사도 100%)",
+      "source_pages": [
+        12,
+        15,
+        16,
+        17,
+        21,
+        24,
+        62,
+        149,
+        182,
+        190
+      ]
+    },
+    "투명한 이사회 경영": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 이사회 전문성·독립성·다양성 (유사도 80%)",
+      "source_pages": [
+        130,
+        132,
+        133
+      ]
+    },
+    "주주가치 제고": {
+      "coverage": "Yes",
+      "response": "매칭: 주주가치 제고 (유사도 100%)",
+      "source_pages": [
+        12,
+        15,
+        16,
+        17,
+        21,
+        24,
+        62,
+        149,
+        182,
+        190
+      ]
+    },
+    "리스크 관리": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 리스크 관리, 기후변화 대응(TCFD) (유사도 80%)",
+      "source_pages": [
+        147,
+        148,
+        151
+      ]
+    },
+    "포트폴리오 ESG 관리": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: 관련 섹션명: 기후변화 대응(TCFD) 청정기술/사업 투자 환경영향 관리 (유사도 80%)",
+      "source_pages": [
+        185,
+        2,
+        11
+      ]
+    },
+    "ESG 공시 의무화 대응": {
+      "coverage": "No",
+      "response": "분석 필요",
+      "source_pages": []
+    }
+  },
+  "Softbank": {
+    "기후변화 대응": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Contribute to the Mitigation of Climate Change (유사도 70%)",
+      "source_pages": [
+        76,
+        71,
+        79
+      ]
+    },
+    "신재생에너지 확대 및 전력 효율화": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Realize a Prosperous Society through... (유사도 70%)",
+      "source_pages": [
+        1,
+        71,
+        79
+      ]
+    },
+    "환경영향 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        185,
+        74,
+        79
+      ]
+    },
+    "생물다양성 보호": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Biodiversity Conservation P. 93–96 (유사도 70%)",
+      "source_pages": [
+        1,
+        3,
+        14
+      ]
+    },
+    "친환경 사업/기술 투자": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        185,
+        93,
+        79
+      ]
+    },
+    "인재양성 및 다양성": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Human Resource Development Initiatives (유사도 70%)",
+      "source_pages": [
+        186,
+        140
+      ]
+    },
+    "안전보건 관리": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Occupational Safety and Health (유사도 70%)",
+      "source_pages": [
+        186,
+        163
+      ]
+    },
+    "인권경영 고도화": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Human Rights Initiatives (유사도 70%)",
+      "source_pages": [
+        186,
+        139,
+        126
+      ]
+    },
+    "책임있는 제품/서비스 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        112,
+        138,
+        110
+      ]
+    },
+    "정보보안 및 프라이버시": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Information Security and Privacy Protection (유사도 70%)",
+      "source_pages": [
+        114,
+        115,
+        110
+      ]
+    },
+    "공급망 ESG 관리": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Supply Chain Management (유사도 70%)",
+      "source_pages": [
+        184,
+        185,
+        186
+      ]
+    },
+    "지역사회 공헌": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Community Participation | Social Contribution Activities (CSR Initiatives) (유사도 80%)",
+      "source_pages": [
+        186,
+        172,
+        138
+      ]
+    },
+    "윤리 및 컴플라이언스": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Compliance/ESG Data Book (유사도 70%)",
+      "source_pages": [
+        186,
+        3,
+        126
+      ]
+    },
+    "투명한 이사회 경영": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        184,
+        185
+      ]
+    },
+    "주주가치 제고": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        93,
+        181
+      ]
+    },
+    "리스크 관리": {
+      "coverage": "Partially",
+      "response": "키워드 발견: ERM, risk management",
+      "source_pages": [
+        128
+      ]
+    },
+    "포트폴리오 ESG 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        184,
+        185,
+        3
+      ]
+    },
+    "ESG 공시 의무화 대응": {
+      "coverage": "No",
+      "response": "분석 필요",
+      "source_pages": []
+    }
+  },
+  "Tensent": {
+    "기후변화 대응": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Climate Change and Carbon Neutrality (유사도 70%)",
+      "source_pages": [
+        16,
+        25,
+        98
+      ]
+    },
+    "신재생에너지 확대 및 전력 효율화": {
+      "coverage": "Yes",
+      "response": "매칭: Waste Management and Circular Economy Solutions (유사도 70%)",
+      "source_pages": [
+        10,
+        14,
+        31,
+        98,
+        99,
+        110,
+        111
+      ]
+    },
+    "환경영향 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        16,
+        98,
+        31
+      ]
+    },
+    "생물다양성 보호": {
+      "coverage": "Yes",
+      "response": "매칭: Natural Resources and Biodiversity Protection (유사도 70%)",
+      "source_pages": [
+        10,
+        14,
+        31,
+        98,
+        99,
+        110,
+        111
+      ]
+    },
+    "친환경 사업/기술 투자": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        98,
+        111
+      ]
+    },
+    "인재양성 및 다양성": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Employee Training and Development (유사도 70%)",
+      "source_pages": [
+        40,
+        101,
+        111
+      ]
+    },
+    "안전보건 관리": {
+      "coverage": "Yes",
+      "response": "매칭: AI Safety and Governance (유사도 70%)",
+      "source_pages": [
+        10,
+        14,
+        31,
+        98,
+        99,
+        110,
+        111
+      ]
+    },
+    "인권경영 고도화": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        65,
+        79,
+        111
+      ]
+    },
+    "책임있는 제품/서비스 관리": {
+      "coverage": "Yes",
+      "response": "매칭: Service Quality and Customer Feedback (유사도 70%)",
+      "source_pages": [
+        10,
+        14,
+        31,
+        98,
+        99,
+        110,
+        111
+      ]
+    },
+    "정보보안 및 프라이버시": {
+      "coverage": "Yes",
+      "response": "매칭: Data and Cyber Security (유사도 70%)",
+      "source_pages": [
+        10,
+        14,
+        31,
+        98,
+        99,
+        110,
+        111
+      ]
+    },
+    "공급망 ESG 관리": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: Sustainable Supply Chain (유사도 70%)",
+      "source_pages": [
+        1,
+        98,
+        99
+      ]
+    },
+    "지역사회 공헌": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        1,
+        110,
+        14
+      ]
+    },
+    "윤리 및 컴플라이언스": {
+      "coverage": "Yes",
+      "response": "폴백 매칭: Related section: 6.1 Adherence to Integrity Practice (유사도 70%)",
+      "source_pages": [
+        98,
+        110,
+        111
+      ]
+    },
+    "투명한 이사회 경영": {
+      "coverage": "Yes",
+      "response": "매칭: Corporate Governance (Efficiency, Independence, and Diversity) (유사도 70%)",
+      "source_pages": [
+        10,
+        14,
+        31,
+        98,
+        99,
+        110,
+        111
+      ]
+    },
+    "주주가치 제고": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        98,
+        111
+      ]
+    },
+    "리스크 관리": {
+      "coverage": "Yes",
+      "response": "매칭: Water Management (유사도 70%)",
+      "source_pages": [
+        10,
+        14,
+        31,
+        98,
+        99,
+        110,
+        111
+      ]
+    },
+    "포트폴리오 ESG 관리": {
+      "coverage": "No",
+      "response": "이슈 미발견",
+      "source_pages": [
+        98,
+        99
+      ]
+    },
+    "ESG 공시 의무화 대응": {
+      "coverage": "No",
+      "response": "분석 필요",
+      "source_pages": []
+    }
+  }
+}

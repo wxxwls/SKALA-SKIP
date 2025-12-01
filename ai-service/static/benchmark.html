@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESG 경쟁사 벤치마킹 분석</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #f5f7fa;
+            min-height: 100vh;
+            padding: 0;
+            color: #2c3e50;
+        }
+
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: #ffffff;
+            border-bottom: 2px solid #e1e8ed;
+            padding: 32px 40px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+            letter-spacing: -0.5px;
+        }
+
+        .header p {
+            font-size: 14px;
+            color: #57606a;
+            font-weight: 400;
+        }
+
+        .api-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            margin-left: 10px;
+        }
+
+        .controls {
+            padding: 20px 40px;
+            background: #fafbfc;
+            border-bottom: 1px solid #e1e8ed;
+        }
+
+        .upload-section {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .upload-section input[type="file"] {
+            padding: 12px 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            flex: 2;
+            min-width: 200px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: 1px solid #d1d9e0;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: white;
+        }
+
+        .btn-primary {
+            background: #0066cc;
+            color: white;
+            border-color: #0066cc;
+        }
+
+        .btn-primary:hover {
+            background: #0052a3;
+            border-color: #0052a3;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #57606a;
+            border-color: #d1d9e0;
+        }
+
+        .btn-secondary:hover {
+            background: #f6f8fa;
+            border-color: #afb8c1;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #0066cc;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .table-container {
+            padding: 30px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #d1d9e0;
+            font-size: 13px;
+            background: white;
+        }
+
+        thead {
+            background: #f6f8fa;
+            border-bottom: 2px solid #d1d9e0;
+        }
+
+        th {
+            padding: 12px 8px;
+            text-align: center;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            font-size: 12px;
+            color: #24292f;
+        }
+
+        th:first-child {
+            width: 40px;
+        }
+
+        th:nth-child(2) {
+            min-width: 200px;
+            text-align: left;
+        }
+
+        td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #e0e0e0;
+            text-align: center;
+        }
+
+        td:nth-child(2) {
+            text-align: left;
+        }
+
+        tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .coverage-yes {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .coverage-partially {
+            color: #ffc107;
+            font-weight: bold;
+        }
+
+        .coverage-no {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        .coverage-cell {
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 18px;
+        }
+
+        .coverage-cell:hover {
+            transform: scale(1.2);
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            padding: 20px 30px;
+            background: #f8f9fa;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            flex: 1;
+            min-width: 150px;
+            background: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .stat-card .rank {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 8px;
+        }
+
+        .stat-card .issue-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .legend {
+            display: flex;
+            gap: 20px;
+            padding: 15px 30px;
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+        .count-cell {
+            font-weight: bold;
+            font-size: 16px;
+            color: #0066cc;
+        }
+
+        .importance-high {
+            background-color: #ff6b6b;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .importance-medium {
+            background-color: #ffd93d;
+            color: #333;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .importance-low {
+            background-color: #95e1d3;
+            color: #333;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .rank-cell {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .rank-1 { color: #FFD700; }
+        .rank-2 { color: #C0C0C0; }
+        .rank-3 { color: #CD7F32; }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #000;
+        }
+
+        .status-bar {
+            background: #e8f4fd;
+            padding: 10px 40px;
+            border-bottom: 1px solid #c8e1fb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #10b981;
+        }
+
+        .status-dot.offline {
+            background: #ef4444;
+        }
+
+        .notice {
+            margin-top: 10px;
+            padding: 10px;
+            background: #fff3cd;
+            border-radius: 5px;
+            font-size: 12px;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>ESG 경쟁사 벤치마킹 분석 <span class="api-badge">ai-service</span></h1>
+            <p>SK Inc. 17개 이슈풀 기준 경쟁사 비교 - COUNT & 중요도 순위</p>
+        </div>
+
+        <div class="status-bar">
+            <div class="status-indicator">
+                <div class="status-dot" id="status-dot"></div>
+                <span id="status-text">API 연결 확인 중...</span>
+            </div>
+            <span id="cached-info"></span>
+        </div>
+
+        <div class="controls">
+            <div class="upload-section">
+                <input type="file" id="pdfFiles" accept=".pdf" multiple>
+                <button class="btn btn-primary" onclick="uploadAndAnalyze()">PDF 업로드 & SK 17개 이슈 분석</button>
+                <button class="btn btn-secondary" onclick="loadData()">캐시 데이터 새로고침</button>
+            </div>
+            <div class="notice">
+                여러 PDF 파일을 선택하세요. 파일명이 회사명으로 사용됩니다. (예: 삼성전자.pdf -> 삼성전자)
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <span class="legend-icon" style="background-color: #28a745;"></span>
+                <span>완전 커버</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-icon" style="background-color: #dc3545;"></span>
+                <span>미커버 (빈칸)</span>
+            </div>
+            <div class="legend-item">
+                <span style="font-weight: bold; color: #667eea;">COUNT</span>
+                <span>: 경쟁사 중 해당 이슈를 다루는 회사 수</span>
+            </div>
+        </div>
+
+        <div class="stats" id="stats">
+            <!-- 통계 카드가 여기에 동적으로 추가됨 -->
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p id="loading-text">분석 중입니다... 잠시만 기다려주세요</p>
+        </div>
+
+        <div class="table-container">
+            <table id="comparisonTable">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>2025 SK Inc. 이슈풀</th>
+                        <th>COUNT</th>
+                        <th>중요도<br>점수</th>
+                        <th>순위</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- 데이터가 동적으로 추가됨 -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 모달 -->
+    <div id="detailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = '/internal/api/v1/benchmark';
+
+        // SK 17개 이슈 목록
+        let issues = [];
+        const categories = [
+            'Environmental', 'Environmental', 'Environmental', 'Environmental', 'Environmental',
+            'Social', 'Social', 'Social', 'Social', 'Social', 'Social', 'Social',
+            'Governance', 'Governance', 'Governance', 'Governance', 'Governance'
+        ];
+
+        let analysisData = {};
+        let companies = [];
+        let issueStats = [];
+
+        // 페이지 로드 시 초기화
+        window.onload = function() {
+            checkApiStatus();
+            loadIssues();
+            loadData();
+        };
+
+        async function checkApiStatus() {
+            try {
+                const response = await fetch(`${API_BASE}/health`);
+                const data = await response.json();
+
+                document.getElementById('status-dot').classList.remove('offline');
+                document.getElementById('status-text').textContent = `API 연결됨 (${data.service})`;
+                document.getElementById('cached-info').textContent = `캐시된 회사: ${data.cached_companies}개`;
+            } catch (error) {
+                document.getElementById('status-dot').classList.add('offline');
+                document.getElementById('status-text').textContent = 'API 연결 실패';
+            }
+        }
+
+        async function loadIssues() {
+            try {
+                const response = await fetch(`${API_BASE}/issues`);
+                const data = await response.json();
+                if (data.success) {
+                    issues = data.issues;
+                }
+            } catch (error) {
+                console.error('Failed to load issues:', error);
+                // 기본 이슈 목록 사용
+                issues = [
+                    "기후변화 대응(완화/적응)",
+                    "신재생에너지 전환 확대",
+                    "환경영향 요인 관리",
+                    "생물다양성 보호",
+                    "친환경 사업/기술 투자",
+                    "인재양성 및 인적자본 관리",
+                    "안전보건 관리",
+                    "인권존중 및 보호",
+                    "서비스 품질 및 안정성",
+                    "정보보안 및 고객 정보보호",
+                    "공급망 ESG 관리",
+                    "지역사회 공헌",
+                    "윤리경영 및 반부패",
+                    "투명한 이사회 경영",
+                    "주주가치 제고",
+                    "통합 리스크 관리",
+                    "포트폴리오 ESG 관리"
+                ];
+            }
+        }
+
+        async function loadData() {
+            try {
+                const response = await fetch(`${API_BASE}/data`);
+                const result = await response.json();
+
+                if (result.success) {
+                    analysisData = result.data;
+                    companies = result.companies || Object.keys(analysisData);
+
+                    calculateIssueStats();
+                    renderTable();
+                    updateStats();
+                    checkApiStatus();
+                }
+            } catch (error) {
+                console.error('Failed to load data:', error);
+            }
+        }
+
+        function calculateIssueStats() {
+            issueStats = issues.map((issue, index) => {
+                let count = 0;
+                let yesCount = 0;
+                let partiallyCount = 0;
+
+                companies.forEach(company => {
+                    const companyData = analysisData[company];
+                    if (companyData && companyData[issue]) {
+                        const coverage = companyData[issue].coverage;
+                        if (coverage === 'Yes') {
+                            count++;
+                            yesCount++;
+                        } else if (coverage === 'Partially') {
+                            partiallyCount++;
+                        }
+                    }
+                });
+
+                const importanceScore = (yesCount + partiallyCount * 0.5) / Math.max(companies.length, 1);
+
+                return {
+                    issue,
+                    index,
+                    count,
+                    yesCount,
+                    partiallyCount,
+                    importanceScore,
+                    category: categories[index]
+                };
+            });
+
+            // 순위 계산
+            const sorted = [...issueStats].sort((a, b) => b.count - a.count || b.importanceScore - a.importanceScore);
+
+            let currentRank = 1;
+            let prevCount = null;
+            let prevScore = null;
+
+            sorted.forEach((stat, idx) => {
+                if (prevCount === stat.count && prevScore === stat.importanceScore) {
+                    // 같은 순위 유지
+                } else {
+                    currentRank = idx + 1;
+                }
+
+                const original = issueStats.find(s => s.issue === stat.issue);
+                original.rank = currentRank;
+
+                prevCount = stat.count;
+                prevScore = stat.importanceScore;
+            });
+        }
+
+        function renderTable() {
+            const thead = document.querySelector('thead tr');
+            const tbody = document.getElementById('tableBody');
+
+            // 헤더 업데이트
+            thead.innerHTML = `
+                <th>No.</th>
+                <th>2025 SK Inc. 이슈풀</th>
+                ${companies.map(c => `<th>${c}</th>`).join('')}
+                <th>COUNT</th>
+                <th>중요도<br>점수</th>
+                <th>순위</th>
+            `;
+
+            // 바디 업데이트
+            tbody.innerHTML = '';
+
+            issueStats.forEach((stat) => {
+                const issue = stat.issue;
+                const index = stat.index;
+
+                const row = document.createElement('tr');
+
+                // 중요도 등급 결정
+                let importanceClass = 'importance-low';
+                if (stat.importanceScore >= 0.7) {
+                    importanceClass = 'importance-high';
+                } else if (stat.importanceScore >= 0.4) {
+                    importanceClass = 'importance-medium';
+                }
+
+                // 순위 클래스
+                let rankClass = stat.rank <= 3 ? `rank-${stat.rank}` : '';
+
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td><strong>${issue}</strong></td>
+                    ${companies.map(company => {
+                        const companyData = analysisData[company];
+                        if (!companyData || !companyData[issue]) {
+                            return '<td class="coverage-cell">-</td>';
+                        }
+
+                        const coverage = companyData[issue].coverage;
+                        const icon = coverage === 'Yes' ? '●' : (coverage === 'Partially' ? '◐' : '');
+                        const className = coverage === 'Yes' ? 'coverage-yes' : (coverage === 'Partially' ? 'coverage-partially' : 'coverage-no');
+
+                        return `<td class="coverage-cell ${className}" onclick="showDetail('${company}', '${issue}')">${icon}</td>`;
+                    }).join('')}
+                    <td class="count-cell">${stat.count}</td>
+                    <td class="${importanceClass}">${stat.importanceScore.toFixed(2)}</td>
+                    <td class="rank-cell ${rankClass}">${stat.rank}</td>
+                `;
+
+                tbody.appendChild(row);
+            });
+        }
+
+        function updateStats() {
+            const statsDiv = document.getElementById('stats');
+
+            if (companies.length === 0) {
+                statsDiv.innerHTML = '<div style="text-align: center; width: 100%; color: #666;">PDF를 업로드하여 분석을 시작하세요</div>';
+                return;
+            }
+
+            // 상위 5개 이슈 표시
+            const top5Issues = [...issueStats].sort((a, b) => a.rank - b.rank).slice(0, 5);
+
+            statsDiv.innerHTML = top5Issues.map((s, i) => `
+                <div class="stat-card">
+                    <div class="rank">${i + 1}위</div>
+                    <div class="issue-name">${s.issue}</div>
+                </div>
+            `).join('');
+        }
+
+        function showDetail(company, issue) {
+            const modal = document.getElementById('detailModal');
+            const title = document.getElementById('modalTitle');
+            const body = document.getElementById('modalBody');
+
+            const data = analysisData[company][issue];
+
+            title.textContent = `${company} - ${issue}`;
+            body.innerHTML = `
+                <p><strong>커버리지:</strong> ${data.coverage}</p>
+                <p><strong>관련 페이지:</strong> ${data.source_pages ? data.source_pages.join(', ') : '-'}</p>
+                <p><strong>상세 내용:</strong></p>
+                <p>${data.response}</p>
+            `;
+
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('detailModal').style.display = 'none';
+        }
+
+        async function uploadAndAnalyze() {
+            const fileInput = document.getElementById('pdfFiles');
+            const files = fileInput.files;
+
+            if (files.length === 0) {
+                alert('PDF 파일을 선택해주세요');
+                return;
+            }
+
+            const formData = new FormData();
+            for (let i = 0; i < files.length; i++) {
+                formData.append('files', files[i]);
+            }
+
+            document.getElementById('loading').classList.add('active');
+            document.getElementById('loading-text').textContent = `${files.length}개 파일 분석 중... 회사당 1-2분 소요됩니다.`;
+
+            try {
+                const response = await fetch(`${API_BASE}/upload-and-analyze`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                document.getElementById('loading').classList.remove('active');
+
+                if (result.success) {
+                    alert(`${result.count}개 회사 분석 완료!\n성공: ${result.success_companies.join(', ')}`);
+
+                    // 결과 병합
+                    Object.assign(analysisData, result.data);
+                    companies = Object.keys(analysisData);
+
+                    calculateIssueStats();
+                    renderTable();
+                    updateStats();
+                    checkApiStatus();
+
+                    fileInput.value = '';
+                } else {
+                    alert('오류: ' + result.message);
+                }
+            } catch (error) {
+                document.getElementById('loading').classList.remove('active');
+                alert('업로드 오류: ' + error);
+            }
+        }
+
+        // 모달 외부 클릭 시 닫기
+        window.onclick = function(event) {
+            const modal = document.getElementById('detailModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+############################################
+# OS 공통 (Mac / Windows)
+############################################
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# 공통 임시 파일
+*.swp
+*.swo
+*.tmp
+*.bak
+
+############################################
+# Java & JVM
+############################################
+
+# 컴파일 결과
+*.class
+
+# 로그 파일
+*.log
+
+# JVM 크래시 로그
+hs_err_pid*
+replay_pid*
+
+############################################
+# 패키징 결과물 (배포 아티팩트)
+############################################
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+############################################
+# Spring Boot / 환경 설정
+############################################
+
+# 환경별 설정 파일 (민감 정보 포함)
+application-dev.yml
+application-prod.yml
+application-local.yml
+application-dev.properties
+application-prod.properties
+application-local.properties
+
+# 환경 변수 파일
+.env
+.env.*
+!.env.example
+
+############################################
+# Gradle
+############################################
+.gradle/
+build/
+
+# Gradle Wrapper는 포함
+!gradle/wrapper/gradle-wrapper.jar
+
+# src 하위의 build 디렉터리가 필요할 경우 예외
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+############################################
+# Maven
+############################################
+target/
+.mvn/wrapper/maven-wrapper.jar
+
+############################################
+# IDE: IntelliJ IDEA
+############################################
+.idea/
+*.iws
+*.iml
+*.ipr
+
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+############################################
+# IDE: Spring Tools Suite (STS, Eclipse 기반)
+############################################
+.apt_generated/
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache
+
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+############################################
+# IDE: NetBeans
+############################################
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+############################################
+# IDE: VS Code
+############################################
+.vscode/
+
+############################################
+# BlueJ
+############################################
+*.ctxt
+
+############################################
+# J2ME (Mobile Tools for Java)
+############################################
+.mtj.tmp/
+
+############################################
+# 기타 문서 / 도구
+############################################
+
+# Gradle / Spring 프로젝트에서 종종 생기는 것들
+HELP.md
+
+# cursor rules
+/.cursor/
+
+# 빌드/분석 도구에서 생성하는 리포트 (원하면 커밋)
+# /reports/
+# /jacoco.exec
+# /jacoco-report/

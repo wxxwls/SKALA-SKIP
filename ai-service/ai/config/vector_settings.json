@@ -1,0 +1,18 @@
+{
+  "collections": {
+    "esg_documents": {
+      "embedding_dimension": 384,
+      "distance_metric": "cosine"
+    },
+    "news_articles": {
+      "embedding_dimension": 384,
+      "distance_metric": "cosine"
+    },
+    "issue_pool": {
+      "embedding_dimension": 384,
+      "distance_metric": "cosine"
+    }
+  },
+  "default_top_k": 5,
+  "max_top_k": 20
+}

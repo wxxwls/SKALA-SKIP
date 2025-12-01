@@ -1,0 +1,484 @@
+{
+  "disclosures": [
+    {
+      "disclosure_id": "GRI 201-1",
+      "disclosure_title": "Direct economic value generated and distributed",
+      "standard": "GRI",
+      "category": "Economic",
+      "description": "Direct economic value generated and distributed (EVG&D) on an accruals basis, including revenues, operating costs, employee compensation, donations, and other community investments",
+      "korean_issues": ["주주가치 제고", "지역사회 공헌"]
+    },
+    {
+      "disclosure_id": "GRI 201-2",
+      "disclosure_title": "Financial implications and other risks and opportunities due to climate change",
+      "standard": "GRI",
+      "category": "Economic",
+      "description": "Financial implications and other risks and opportunities for the organization's activities due to climate change",
+      "korean_issues": ["기후변화 대응", "리스크 관리"]
+    },
+    {
+      "disclosure_id": "GRI 302-1",
+      "disclosure_title": "Energy consumption within the organization",
+      "standard": "GRI",
+      "category": "Environmental",
+      "description": "Total energy consumption within the organization from non-renewable and renewable sources",
+      "korean_issues": ["신재생에너지 확대 및 전력 효율화", "환경영향 관리"]
+    },
+    {
+      "disclosure_id": "GRI 302-4",
+      "disclosure_title": "Reduction of energy consumption",
+      "standard": "GRI",
+      "category": "Environmental",
+      "description": "Amount of reductions in energy consumption achieved as a direct result of conservation and efficiency initiatives",
+      "korean_issues": ["신재생에너지 확대 및 전력 효율화", "친환경 사업/기술 투자"]
+    },
+    {
+      "disclosure_id": "GRI 303-1",
+      "disclosure_title": "Interactions with water as a shared resource",
+      "standard": "GRI",
+      "category": "Environmental",
+      "description": "Description of how the organization interacts with water, including how and where water is withdrawn, consumed, and discharged",
+      "korean_issues": ["환경영향 관리", "생물다양성 보호"]
+    },
+    {
+      "disclosure_id": "GRI 304-1",
+      "disclosure_title": "Operational sites in or adjacent to protected areas and areas of high biodiversity value",
+      "standard": "GRI",
+      "category": "Environmental",
+      "description": "Operational sites owned, leased, managed in, or adjacent to, protected areas and areas of high biodiversity value",
+      "korean_issues": ["생물다양성 보호", "환경영향 관리"]
+    },
+    {
+      "disclosure_id": "GRI 304-2",
+      "disclosure_title": "Significant impacts of activities, products, and services on biodiversity",
+      "standard": "GRI",
+      "category": "Environmental",
+      "description": "Nature of significant direct and indirect impacts on biodiversity",
+      "korean_issues": ["생물다양성 보호"]
+    },
+    {
+      "disclosure_id": "GRI 305-1",
+      "disclosure_title": "Direct (Scope 1) GHG emissions",
+      "standard": "GRI",
+      "category": "Environmental",
+      "description": "Gross direct (Scope 1) GHG emissions in metric tons of CO2 equivalent",
+      "korean_issues": ["기후변화 대응", "환경영향 관리"]
+    },
+    {
+      "disclosure_id": "GRI 305-2",
+      "disclosure_title": "Energy indirect (Scope 2) GHG emissions",
+      "standard": "GRI",
+      "category": "Environmental",
+      "description": "Gross location-based energy indirect (Scope 2) GHG emissions in metric tons of CO2 equivalent",
+      "korean_issues": ["기후변화 대응", "환경영향 관리"]
+    },
+    {
+      "disclosure_id": "GRI 305-3",
+      "disclosure_title": "Other indirect (Scope 3) GHG emissions",
+      "standard": "GRI",
+      "category": "Environmental",
+      "description": "Gross other indirect (Scope 3) GHG emissions in metric tons of CO2 equivalent",
+      "korean_issues": ["기후변화 대응", "공급망 ESG 관리"]
+    },
+    {
+      "disclosure_id": "GRI 305-5",
+      "disclosure_title": "Reduction of GHG emissions",
+      "standard": "GRI",
+      "category": "Environmental",
+      "description": "GHG emissions reduced as a direct result of reduction initiatives",
+      "korean_issues": ["기후변화 대응", "친환경 사업/기술 투자"]
+    },
+    {
+      "disclosure_id": "GRI 306-1",
+      "disclosure_title": "Waste generation and significant waste-related impacts",
+      "standard": "GRI",
+      "category": "Environmental",
+      "description": "Description of actual and potential waste-related impacts",
+      "korean_issues": ["환경영향 관리"]
+    },
+    {
+      "disclosure_id": "GRI 306-2",
+      "disclosure_title": "Management of significant waste-related impacts",
+      "standard": "GRI",
+      "category": "Environmental",
+      "description": "Actions taken to prevent waste generation and to manage significant impacts from waste generated",
+      "korean_issues": ["환경영향 관리", "친환경 사업/기술 투자"]
+    },
+    {
+      "disclosure_id": "GRI 401-1",
+      "disclosure_title": "New employee hires and employee turnover",
+      "standard": "GRI",
+      "category": "Social",
+      "description": "Total number and rate of new employee hires and employee turnover by age group, gender, and region",
+      "korean_issues": ["인재양성 및 다양성"]
+    },
+    {
+      "disclosure_id": "GRI 401-2",
+      "disclosure_title": "Benefits provided to full-time employees",
+      "standard": "GRI",
+      "category": "Social",
+      "description": "Benefits which are standard for full-time employees of the organization but are not provided to temporary or part-time employees",
+      "korean_issues": ["인재양성 및 다양성", "인권경영 고도화"]
+    },
+    {
+      "disclosure_id": "GRI 403-1",
+      "disclosure_title": "Occupational health and safety management system",
+      "standard": "GRI",
+      "category": "Social",
+      "description": "Statement of whether an occupational health and safety management system has been implemented",
+      "korean_issues": ["안전보건 관리"]
+    },
+    {
+      "disclosure_id": "GRI 403-5",
+      "disclosure_title": "Worker training on occupational health and safety",
+      "standard": "GRI",
+      "category": "Social",
+      "description": "Description of any occupational health and safety training provided to workers",
+      "korean_issues": ["안전보건 관리", "인재양성 및 다양성"]
+    },
+    {
+      "disclosure_id": "GRI 403-9",
+      "disclosure_title": "Work-related injuries",
+      "standard": "GRI",
+      "category": "Social",
+      "description": "Number and rate of fatalities and high-consequence work-related injuries; main types of work-related injuries",
+      "korean_issues": ["안전보건 관리"]
+    },
+    {
+      "disclosure_id": "GRI 404-1",
+      "disclosure_title": "Average hours of training per year per employee",
+      "standard": "GRI",
+      "category": "Social",
+      "description": "Average hours of training that the organization's employees have undertaken during the reporting period",
+      "korean_issues": ["인재양성 및 다양성"]
+    },
+    {
+      "disclosure_id": "GRI 404-2",
+      "disclosure_title": "Programs for upgrading employee skills and transition assistance programs",
+      "standard": "GRI",
+      "category": "Social",
+      "description": "Type and scope of programs implemented and assistance provided to upgrade employee skills",
+      "korean_issues": ["인재양성 및 다양성"]
+    },
+    {
+      "disclosure_id": "GRI 405-1",
+      "disclosure_title": "Diversity of governance bodies and employees",
+      "standard": "GRI",
+      "category": "Social",
+      "description": "Percentage of individuals within the organization's governance bodies and employees per employee category",
+      "korean_issues": ["인재양성 및 다양성", "투명한 이사회 경영"]
+    },
+    {
+      "disclosure_id": "GRI 405-2",
+      "disclosure_title": "Ratio of basic salary and remuneration of women to men",
+      "standard": "GRI",
+      "category": "Social",
+      "description": "Ratio of basic salary and remuneration of women to men for each employee category",
+      "korean_issues": ["인재양성 및 다양성", "인권경영 고도화"]
+    },
+    {
+      "disclosure_id": "GRI 406-1",
+      "disclosure_title": "Incidents of discrimination and corrective actions taken",
+      "standard": "GRI",
+      "category": "Social",
+      "description": "Total number of incidents of discrimination during the reporting period",
+      "korean_issues": ["인권경영 고도화"]
+    },
+    {
+      "disclosure_id": "GRI 407-1",
+      "disclosure_title": "Operations and suppliers in which the right to freedom of association may be at risk",
+      "standard": "GRI",
+      "category": "Social",
+      "description": "Operations and suppliers in which workers' rights to exercise freedom of association may be violated or at significant risk",
+      "korean_issues": ["인권경영 고도화", "공급망 ESG 관리"]
+    },
+    {
+      "disclosure_id": "GRI 408-1",
+      "disclosure_title": "Operations and suppliers at significant risk for incidents of child labor",
+      "standard": "GRI",
+      "category": "Social",
+      "description": "Operations and suppliers considered to have significant risk for incidents of child labor",
+      "korean_issues": ["인권경영 고도화", "공급망 ESG 관리"]
+    },
+    {
+      "disclosure_id": "GRI 409-1",
+      "disclosure_title": "Operations and suppliers at significant risk for incidents of forced or compulsory labor",
+      "standard": "GRI",
+      "category": "Social",
+      "description": "Operations and suppliers considered to have significant risk for incidents of forced or compulsory labor",
+      "korean_issues": ["인권경영 고도화", "공급망 ESG 관리"]
+    },
+    {
+      "disclosure_id": "GRI 410-1",
+      "disclosure_title": "Security personnel trained in human rights policies",
+      "standard": "GRI",
+      "category": "Social",
+      "description": "Percentage of security personnel who have received formal training in the organization's human rights policies",
+      "korean_issues": ["인권경영 고도화"]
+    },
+    {
+      "disclosure_id": "GRI 411-1",
+      "disclosure_title": "Incidents of violations involving rights of indigenous peoples",
+      "standard": "GRI",
+      "category": "Social",
+      "description": "Total number of identified incidents of violations involving the rights of indigenous peoples during the reporting period",
+      "korean_issues": ["인권경영 고도화", "지역사회 공헌"]
+    },
+    {
+      "disclosure_id": "GRI 413-1",
+      "disclosure_title": "Operations with local community engagement, impact assessments, and development programs",
+      "standard": "GRI",
+      "category": "Social",
+      "description": "Percentage of operations with implemented local community engagement, impact assessments, and/or development programs",
+      "korean_issues": ["지역사회 공헌"]
+    },
+    {
+      "disclosure_id": "GRI 414-1",
+      "disclosure_title": "New suppliers that were screened using social criteria",
+      "standard": "GRI",
+      "category": "Social",
+      "description": "Percentage of new suppliers that were screened using social criteria",
+      "korean_issues": ["공급망 ESG 관리"]
+    },
+    {
+      "disclosure_id": "GRI 414-2",
+      "disclosure_title": "Negative social impacts in the supply chain and actions taken",
+      "standard": "GRI",
+      "category": "Social",
+      "description": "Number of suppliers assessed for social impacts; significant actual and potential negative social impacts identified",
+      "korean_issues": ["공급망 ESG 관리", "인권경영 고도화"]
+    },
+    {
+      "disclosure_id": "GRI 416-1",
+      "disclosure_title": "Assessment of the health and safety impacts of product and service categories",
+      "standard": "GRI",
+      "category": "Social",
+      "description": "Percentage of significant product and service categories for which health and safety impacts are assessed",
+      "korean_issues": ["책임있는 제품/서비스 관리"]
+    },
+    {
+      "disclosure_id": "GRI 416-2",
+      "disclosure_title": "Incidents of non-compliance concerning health and safety impacts",
+      "standard": "GRI",
+      "category": "Social",
+      "description": "Total number of incidents of non-compliance with regulations and voluntary codes concerning health and safety impacts of products and services",
+      "korean_issues": ["책임있는 제품/서비스 관리"]
+    },
+    {
+      "disclosure_id": "GRI 417-1",
+      "disclosure_title": "Requirements for product and service information and labeling",
+      "standard": "GRI",
+      "category": "Social",
+      "description": "Whether each of the following types of information is required by the organization's procedures for product and service information and labeling",
+      "korean_issues": ["책임있는 제품/서비스 관리"]
+    },
+    {
+      "disclosure_id": "GRI 418-1",
+      "disclosure_title": "Substantiated complaints concerning breaches of customer privacy",
+      "standard": "GRI",
+      "category": "Social",
+      "description": "Total number of substantiated complaints received concerning breaches of customer privacy",
+      "korean_issues": ["정보보안 및 프라이버시"]
+    },
+    {
+      "disclosure_id": "GRI 2-9",
+      "disclosure_title": "Governance structure and composition",
+      "standard": "GRI",
+      "category": "Governance",
+      "description": "Governance structure and composition, including committees of the highest governance body",
+      "korean_issues": ["투명한 이사회 경영"]
+    },
+    {
+      "disclosure_id": "GRI 2-10",
+      "disclosure_title": "Nomination and selection of the highest governance body",
+      "standard": "GRI",
+      "category": "Governance",
+      "description": "Processes for nominating and selecting members of the highest governance body",
+      "korean_issues": ["투명한 이사회 경영"]
+    },
+    {
+      "disclosure_id": "GRI 2-15",
+      "disclosure_title": "Conflicts of interest",
+      "standard": "GRI",
+      "category": "Governance",
+      "description": "Processes for the highest governance body to ensure that conflicts of interest are prevented and mitigated",
+      "korean_issues": ["윤리 및 컴플라이언스", "투명한 이사회 경영"]
+    },
+    {
+      "disclosure_id": "GRI 2-23",
+      "disclosure_title": "Policy commitments",
+      "standard": "GRI",
+      "category": "Governance",
+      "description": "Description of policy commitments for responsible business conduct",
+      "korean_issues": ["윤리 및 컴플라이언스", "인권경영 고도화"]
+    },
+    {
+      "disclosure_id": "GRI 2-26",
+      "disclosure_title": "Mechanisms for seeking advice and raising concerns",
+      "standard": "GRI",
+      "category": "Governance",
+      "description": "Mechanisms for individuals to seek advice on implementing the organization's policies and to raise concerns about business conduct",
+      "korean_issues": ["윤리 및 컴플라이언스"]
+    },
+    {
+      "disclosure_id": "GRI 205-1",
+      "disclosure_title": "Operations assessed for risks related to corruption",
+      "standard": "GRI",
+      "category": "Governance",
+      "description": "Total number and percentage of operations assessed for risks related to corruption",
+      "korean_issues": ["윤리 및 컴플라이언스", "리스크 관리"]
+    },
+    {
+      "disclosure_id": "GRI 205-2",
+      "disclosure_title": "Communication and training about anti-corruption policies",
+      "standard": "GRI",
+      "category": "Governance",
+      "description": "Total number and percentage of governance body members and employees that have received training on anti-corruption",
+      "korean_issues": ["윤리 및 컴플라이언스"]
+    },
+    {
+      "disclosure_id": "GRI 205-3",
+      "disclosure_title": "Confirmed incidents of corruption and actions taken",
+      "standard": "GRI",
+      "category": "Governance",
+      "description": "Total number and nature of confirmed incidents of corruption",
+      "korean_issues": ["윤리 및 컴플라이언스"]
+    },
+    {
+      "disclosure_id": "GRI 206-1",
+      "disclosure_title": "Legal actions for anti-competitive behavior",
+      "standard": "GRI",
+      "category": "Governance",
+      "description": "Number of legal actions pending or completed during the reporting period regarding anti-competitive behavior",
+      "korean_issues": ["윤리 및 컴플라이언스", "리스크 관리"]
+    },
+    {
+      "disclosure_id": "SASB TC-SI-130a.1",
+      "disclosure_title": "Total energy consumed, percentage grid electricity, percentage renewable",
+      "standard": "SASB",
+      "category": "Environmental",
+      "description": "Total energy consumed in gigajoules, percentage from grid electricity, percentage from renewable sources",
+      "korean_issues": ["신재생에너지 확대 및 전력 효율화", "기후변화 대응"]
+    },
+    {
+      "disclosure_id": "SASB TC-SI-130a.2",
+      "disclosure_title": "Total water withdrawn, total water consumed",
+      "standard": "SASB",
+      "category": "Environmental",
+      "description": "Total water withdrawn and total water consumed in thousands of cubic meters",
+      "korean_issues": ["환경영향 관리"]
+    },
+    {
+      "disclosure_id": "SASB TC-SI-130a.3",
+      "disclosure_title": "Discussion of integration of environmental considerations",
+      "standard": "SASB",
+      "category": "Environmental",
+      "description": "Discussion of the integration of environmental considerations into strategic planning for data center needs",
+      "korean_issues": ["친환경 사업/기술 투자", "기후변화 대응"]
+    },
+    {
+      "disclosure_id": "SASB TC-SI-220a.1",
+      "disclosure_title": "Description of policies and practices relating to behavioral advertising",
+      "standard": "SASB",
+      "category": "Social",
+      "description": "Description of policies and practices relating to behavioral advertising and user privacy",
+      "korean_issues": ["정보보안 및 프라이버시"]
+    },
+    {
+      "disclosure_id": "SASB TC-SI-220a.2",
+      "disclosure_title": "Number of users whose information is used for secondary purposes",
+      "standard": "SASB",
+      "category": "Social",
+      "description": "Number of users whose information is used for secondary purposes",
+      "korean_issues": ["정보보안 및 프라이버시"]
+    },
+    {
+      "disclosure_id": "SASB TC-SI-220a.3",
+      "disclosure_title": "Total amount of monetary losses from legal proceedings associated with user privacy",
+      "standard": "SASB",
+      "category": "Social",
+      "description": "Total amount of monetary losses as a result of legal proceedings associated with user privacy",
+      "korean_issues": ["정보보안 및 프라이버시", "리스크 관리"]
+    },
+    {
+      "disclosure_id": "SASB TC-SI-220a.4",
+      "disclosure_title": "Number of law enforcement requests for user information",
+      "standard": "SASB",
+      "category": "Social",
+      "description": "Number of law enforcement requests for user information, number of users whose information was requested, percentage resulting in disclosure",
+      "korean_issues": ["정보보안 및 프라이버시"]
+    },
+    {
+      "disclosure_id": "SASB TC-SI-220a.5",
+      "disclosure_title": "List of countries where core products or services are subject to government-required monitoring",
+      "standard": "SASB",
+      "category": "Social",
+      "description": "List of countries where core products or services are subject to government-required monitoring, blocking, content filtering, or censoring",
+      "korean_issues": ["정보보안 및 프라이버시", "인권경영 고도화"]
+    },
+    {
+      "disclosure_id": "SASB TC-SI-230a.1",
+      "disclosure_title": "Number of data breaches and percentage involving PII",
+      "standard": "SASB",
+      "category": "Social",
+      "description": "Number of data breaches, percentage involving personally identifiable information (PII), number of users affected",
+      "korean_issues": ["정보보안 및 프라이버시"]
+    },
+    {
+      "disclosure_id": "SASB TC-SI-230a.2",
+      "disclosure_title": "Description of approach to identifying and addressing data security risks",
+      "standard": "SASB",
+      "category": "Social",
+      "description": "Description of approach to identifying and addressing data security risks, including use of third-party cybersecurity standards",
+      "korean_issues": ["정보보안 및 프라이버시", "리스크 관리"]
+    },
+    {
+      "disclosure_id": "SASB TC-SI-330a.1",
+      "disclosure_title": "Percentage of employees that are foreign nationals",
+      "standard": "SASB",
+      "category": "Social",
+      "description": "Percentage of employees that are (1) foreign nationals and (2) located offshore",
+      "korean_issues": ["인재양성 및 다양성"]
+    },
+    {
+      "disclosure_id": "SASB TC-SI-330a.2",
+      "disclosure_title": "Employee engagement as a percentage",
+      "standard": "SASB",
+      "category": "Social",
+      "description": "Employee engagement as a percentage",
+      "korean_issues": ["인재양성 및 다양성"]
+    },
+    {
+      "disclosure_id": "SASB TC-SI-330a.3",
+      "disclosure_title": "Percentage of gender and racial/ethnic group representation",
+      "standard": "SASB",
+      "category": "Social",
+      "description": "Percentage of gender and racial/ethnic group representation for management, technical staff, and all other employees",
+      "korean_issues": ["인재양성 및 다양성"]
+    },
+    {
+      "disclosure_id": "SASB TC-SI-520a.1",
+      "disclosure_title": "Total amount of monetary losses from legal proceedings associated with anticompetitive behavior",
+      "standard": "SASB",
+      "category": "Governance",
+      "description": "Total amount of monetary losses as a result of legal proceedings associated with anticompetitive behavior regulations",
+      "korean_issues": ["윤리 및 컴플라이언스", "리스크 관리"]
+    },
+    {
+      "disclosure_id": "SASB TC-SI-550a.1",
+      "disclosure_title": "Number of performance issues and service disruptions",
+      "standard": "SASB",
+      "category": "Social",
+      "description": "Number of (1) performance issues and (2) service disruptions; (3) total customer downtime",
+      "korean_issues": ["책임있는 제품/서비스 관리"]
+    },
+    {
+      "disclosure_id": "SASB TC-SI-550a.2",
+      "disclosure_title": "Description of business continuity risks related to service disruptions",
+      "standard": "SASB",
+      "category": "Social",
+      "description": "Description of business continuity risks related to disruptions of operations",
+      "korean_issues": ["책임있는 제품/서비스 관리", "리스크 관리"]
+    }
+  ]
+}
